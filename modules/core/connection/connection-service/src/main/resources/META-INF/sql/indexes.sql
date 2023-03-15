@@ -1,0 +1,1 @@
+create index IX_D103D943 on ency_connection (name[$COLUMN_LENGTH:30$]);

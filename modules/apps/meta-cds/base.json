@@ -1,0 +1,471 @@
+{
+  "projectName": "MetaCds",
+  "packageName": "cz.csob.ency.modules.apps.meta.cds",
+  "liferayVersion": "7.4",
+  "useTargetPlatform": true,
+  "applications": [
+    {
+      "model": "SystemEntry",
+      "title": "System Meta Entry",
+      "web": true,
+      "asset": {
+        "assetTitleFieldName": "systemName",
+        "assetSummaryFieldName": "description",
+        "categories": false,
+        "discussion": true,
+        "ratings": false,
+        "tags": false,
+        "relatedAssets": false,
+        "fullContentFieldName": "description",
+        "workflow": true,
+        "generateActivity": false,
+        "trash": false,
+        "advancedSearch": true,
+        "exportExcel": false
+      },
+      "fields": [
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "primary": true,
+          "name": "systemEntryId",
+          "title": "System Id",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "primary": false,
+          "name": "systemCode",
+          "title": "Code",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "systemName",
+          "title": "Name",
+          "length": "10",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "systemTitle",
+          "title": "Title",
+          "length": "200",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "systemType",
+          "title": "Type",
+          "length": "20",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "description",
+          "title": "Description",
+          "length": "4000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "stewardName",
+          "title": "Steward",
+          "length": "1000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "stewardId",
+          "title": "Steward Id",
+          "length": "200",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "stewardDepartment",
+          "title": "Steward Department",
+          "length": "1000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "businessOwnerName",
+          "title": "Business Owner",
+          "length": "1000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "businessOwnerId",
+          "title": "Business Owner Id",
+          "length": "200",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "contactPersonName",
+          "title": "Contact Person",
+          "length": "1000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "contactPersonId",
+          "title": "Contact Person Id",
+          "length": "200",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "sandboxName",
+          "title": "Sandbox Name",
+          "length": "256",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "gestorDepartmentId",
+          "title": "Gestor Department",
+          "length": "200",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "gestorDepartmentName",
+          "title": "Gestor Department Id",
+          "length": "1000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "role",
+          "title": "Role",
+          "length": "256",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "snowAssetTagId",
+          "title": "Snow Asset Tag Id",
+          "length": "200",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "snowAssetTagName",
+          "title": "Snow Asset Tag Name",
+          "length": "1000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Boolean",
+          "name": "isSlaSigned",
+          "title": "Is SLA Signed"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Boolean",
+          "name": "isSelfBi",
+          "title": "Is SelfBI"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Boolean",
+          "name": "isActive",
+          "title": "Is Active"
+        }
+      ]
+    },
+    {
+      "model": "TableEntry",
+      "title": "Table Meta Entry",
+      "web": true,
+      "asset": {
+        "assetTitleFieldName": "tableName",
+        "assetSummaryFieldName": "description",
+        "categories": false,
+        "discussion": true,
+        "ratings": false,
+        "tags": false,
+        "relatedAssets": false,
+        "fullContentFieldName": "description",
+        "workflow": true,
+        "generateActivity": false,
+        "trash": false,
+        "advancedSearch": true,
+        "exportExcel": false
+      },
+      "fields": [
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "primary": true,
+          "name": "tableEntryId",
+          "title": "Table Id",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "tableName",
+          "title": "Name",
+          "length": "512",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "tableFullName",
+          "title": "Full Name",
+          "length": "1024",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "tableType",
+          "title": "Type",
+          "length": "10",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "tableDatabase",
+          "title": "Database",
+          "length": "128",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "primary": false,
+          "name": "systemEntryId",
+          "title": "System Id",
+          "showFieldInView": true,
+          "required": true,
+          "validation": {
+            "className": "SystemEntry",
+            "fieldName": "systemEntryId",
+            "orderByField": "systemName"
+          }
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "systemName",
+          "title": "System Name",
+          "length": "10",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "description",
+          "title": "Description",
+          "length": "4000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "dsaUrl",
+          "title": "DSA Url",
+          "length": "1024",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "contactPersonName",
+          "title": "Contact Person",
+          "length": "1000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "contactPersonId",
+          "title": "",
+          "length": "200",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "specificationOwnerName",
+          "title": "Specification Owner",
+          "length": "1000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "specificationOwnerId",
+          "title": "Specification Owner Id",
+          "length": "200",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "unstructuredClause",
+          "title": "Clause",
+          "length": "40000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Boolean",
+          "name": "isActive",
+          "title": "Is Active"
+        }
+      ]
+    },
+    {
+      "model": "ColumnEntry",
+      "title": "Column Meta Entry",
+      "web": true,
+      "asset": {
+        "assetTitleFieldName": "columnName",
+        "assetSummaryFieldName": "columnFullName",
+        "categories": false,
+        "discussion": false,
+        "ratings": false,
+        "tags": false,
+        "relatedAssets": false,
+        "fullContentFieldName": "columnFullName",
+        "workflow": true,
+        "generateActivity": false,
+        "trash": false,
+        "advancedSearch": true,
+        "exportExcel": false
+      },
+      "fields": [
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "primary": true,
+          "name": "columnEntryId",
+          "title": "Column Entry Id",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "columnType",
+          "title": "Type",
+          "length": "10",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "columnName",
+          "title": "Column Name",
+          "length": "512",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "columnFullName",
+          "title": "Column Full Name",
+          "length": "1024",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "primary": false,
+          "name": "tableEntryId",
+          "title": "Table Id",
+          "showFieldInView": true,
+          "required": true,
+          "validation": {
+            "className": "TableEntry",
+            "fieldName": "tableEntryId",
+            "orderByField": "tableName"
+          }
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "tableName",
+          "title": "Table Name",
+          "length": "512",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "systemName",
+          "title": "System Name",
+          "length": "10",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "databaseName",
+          "title": "Database Name",
+          "length": "128",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "description",
+          "title": "Description",
+          "length": "4000",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "dataType",
+          "title": "Data Type",
+          "length": "32",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "primary": false,
+          "name": "dataSize",
+          "title": "Data Size",
+          "showFieldInView": true,
+          "required": true
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Boolean",
+          "name": "isPrimaryKey",
+          "title": "Primary Key"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Boolean",
+          "name": "isNotNull",
+          "title": "Not Null"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Boolean",
+          "name": "isActive",
+          "title": "Is Active"
+        }
+      ]
+    }
+  ]
+}

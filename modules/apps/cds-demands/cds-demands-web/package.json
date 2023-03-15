@@ -1,0 +1,33 @@
+{
+  "name": "cds-demands-web",
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "axios": "0.27.2",
+    "mui-datatables": "^3.8.5",
+    "react-router": "6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-select": "5.2.1",
+    "recharts": "1.8.5"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-liferay": "^3.0.0",
+    "prettier": "^1.16.4",
+    "publish-please": "^2.3.1"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=development babel  --source-maps -d build/resources/main/META-INF/resources src/main/resources/META-INF/resources && liferay-npm-bundler",
+    "build2": "cross-env NODE_ENV=development liferay-npm-scripts build",
+    "checkFormat": "liferay-npm-scripts check",
+    "format": "prettier --write '{*,.*}.js' 'bin/**/{*,.*}.js' 'src/**/{*,.*}.js'",
+    "format:check": "prettier --list-different '{*,.*}.js' 'bin/**/{*,.*}.js' 'src/**/{*,.*}.js'",
+    "lint": "eslint '*.js' 'bin/**/{*,.*}.js' 'src/**/{*,.*}.js'",
+    "lint:fix": "eslint --fix '*.js' 'bin/**/{*,.*}.js' 'src/**/{*,.*}.js'"
+  },
+  "version": "1.0.0"
+}

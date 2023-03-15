@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<hint-collection name="TEXTAREA">
+		<hint name="display-height">105</hint>
+		<hint name="display-width">500</hint>
+		<hint name="max-length">30000</hint>
+	</hint-collection>
+	<hint-collection name="NAME">
+		<hint name="max-length">256</hint>
+	</hint-collection>
+	<hint-collection name="MEDIUMTEXT">
+		<hint name="max-length">512</hint>
+	</hint-collection>
+	<hint-collection name="LONGTEXT">
+		<hint name="max-length">1024</hint>
+	</hint-collection>
+	<hint-collection name="URLTITLE">
+		<hint name="max-length">256</hint>
+	</hint-collection>
+	<model name="cz.csob.ency.cds.demands.model.CdsDemand">
+		<field name="mvccVersion" type="long" />
+		<field name="uuid" type="String" />
+		<field name="headId" type="long" />
+		<field name="demandId" type="long" />
+		<field name="title" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="description" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="type" type="int" />
+		<field name="priority" type="int" />
+		<field name="requestedDelivery" type="Date">
+			<hint name="show-time">false</hint>
+			<hint name="year-range-delta">80</hint>
+		</field>
+		<field name="isGDPR" type="boolean" />
+		<field name="gdprInfo" type="String">
+			<hint-collection name="MEDIUMTEXT" />
+		</field>
+		<field name="fiveTracks" type="String">
+			<hint-collection name="MEDIUMTEXT" />
+		</field>
+		<field name="requestorId" type="long" />
+		<field name="requestorName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="requestedForId" type="long" />
+		<field name="requestedForName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="contactId" type="long" />
+		<field name="contactName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="domainId" type="long" />
+		<field name="domainName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="banId" type="long" />
+		<field name="banName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="spocId" type="long" />
+		<field name="spocName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="usReasoning" type="String">
+			<hint-collection name="MEDIUMTEXT" />
+		</field>
+		<field name="usFrequencyOut" type="int" />
+		<field name="usAccessDPM" type="boolean" />
+		<field name="usFolderDPM" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="usCreateFolderDPM" type="boolean" />
+		<field name="usGestorFolderDPMId" type="long" />
+		<field name="usGestorFolderDPMName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="usDPMNotificationMail" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="bioeId" type="String">
+			<hint name="max-length">20</hint>
+		</field>
+		<field name="bioeStateId" type="short" />
+		<field name="bioeStateName" type="String" />
+		<field name="workEstimate" type="double" />
+		<field name="acceptedWorkEstimate" type="double" />
+		<field name="expectedDelivery" type="Date">
+			<hint name="show-time">false</hint>
+			<hint name="year-range-delta">80</hint>
+		</field>
+		<field name="acceptedDelivery" type="Date">
+			<hint name="show-time">false</hint>
+			<hint name="year-range-delta">80</hint>
+		</field>
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="urlTitle" type="String">
+			<hint-collection name="URLTITLE" />
+		</field>
+		<field name="state" type="String" />
+		<field name="stateByUserId" type="long" />
+		<field name="stateByUserName" type="String" />
+		<field name="stateDate" type="Date" />
+	</model>
+	<model name="cz.csob.ency.cds.demands.model.CdsDemandGdprInfo">
+		<field name="uuid" type="String" />
+		<field name="gdprInfoId" type="long" />
+		<field name="demandId" type="long" />
+		<field name="title" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="description" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="isEmployee" type="boolean" />
+		<field name="employeeCategory" type="String">
+			<hint-collection name="LONGTEXT" />
+		</field>
+		<field name="employeeReasoning" type="String">
+			<hint-collection name="LONGTEXT" />
+		</field>
+		<field name="isClient" type="boolean" />
+		<field name="clientCategory" type="String">
+			<hint-collection name="LONGTEXT" />
+		</field>
+		<field name="clientReasoning" type="String">
+			<hint-collection name="LONGTEXT" />
+		</field>
+		<field name="userId" type="long" />
+		<field name="userName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="cz.csob.ency.cds.demands.model.CdsDemandVersion">
+		<field name="cdsDemandVersionId" type="long" />
+		<field name="version" type="int" />
+		<field name="uuid" type="String" />
+		<field name="demandId" type="long" />
+		<field name="title" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="description" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="type" type="int" />
+		<field name="priority" type="int" />
+		<field name="requestedDelivery" type="Date">
+			<hint name="show-time">false</hint>
+			<hint name="year-range-delta">80</hint>
+		</field>
+		<field name="isGDPR" type="boolean" />
+		<field name="gdprInfo" type="String">
+			<hint-collection name="MEDIUMTEXT" />
+		</field>
+		<field name="fiveTracks" type="String">
+			<hint-collection name="MEDIUMTEXT" />
+		</field>
+		<field name="requestorId" type="long" />
+		<field name="requestorName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="requestedForId" type="long" />
+		<field name="requestedForName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="contactId" type="long" />
+		<field name="contactName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="domainId" type="long" />
+		<field name="domainName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="banId" type="long" />
+		<field name="banName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="spocId" type="long" />
+		<field name="spocName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="usReasoning" type="String">
+			<hint-collection name="MEDIUMTEXT" />
+		</field>
+		<field name="usFrequencyOut" type="int" />
+		<field name="usAccessDPM" type="boolean" />
+		<field name="usFolderDPM" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="usCreateFolderDPM" type="boolean" />
+		<field name="usGestorFolderDPMId" type="long" />
+		<field name="usGestorFolderDPMName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="usDPMNotificationMail" type="String" />
+		<field name="bioeId" type="String">
+			<hint name="max-length">20</hint>
+		</field>
+		<field name="bioeStateId" type="short" />
+		<field name="bioeStateName" type="String" />
+		<field name="workEstimate" type="double" />
+		<field name="acceptedWorkEstimate" type="double" />
+		<field name="expectedDelivery" type="Date">
+			<hint name="show-time">false</hint>
+			<hint name="year-range-delta">80</hint>
+		</field>
+		<field name="acceptedDelivery" type="Date">
+			<hint name="show-time">false</hint>
+			<hint name="year-range-delta">80</hint>
+		</field>
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="urlTitle" type="String">
+			<hint-collection name="URLTITLE" />
+		</field>
+		<field name="state" type="String" />
+		<field name="stateByUserId" type="long" />
+		<field name="stateByUserName" type="String" />
+		<field name="stateDate" type="Date" />
+	</model>
+</model-hints>

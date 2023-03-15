@@ -1,0 +1,11 @@
+Bundle-Name: connection-api
+Bundle-SymbolicName: cz.csob.ency.connection.api
+Bundle-Version: 1.0.1
+Export-Package:\
+	cz.csob.ency.connection.exception,\
+	cz.csob.ency.connection.model,\
+	cz.csob.ency.connection.service,\
+	cz.csob.ency.connection.service.persistence,\
+	cz.csob.ency.connection.sql
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../connection-service/service.xml

@@ -1,0 +1,54 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cz.csob.ency.modules.apps.pdr</groupId>
+    <artifactId>pdr-service</artifactId>
+    <version>1.0.0</version>
+    <name>PDR Service</name>
+
+    <parent>
+        <groupId>cz.csob.ency.modules.apps</groupId>
+        <artifactId>pdr</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <dependencies>
+        <dependency>
+            <groupId>cz.csob.ency.modules.apps.pdr</groupId>
+            <artifactId>pdr-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cz.csob.ency.modules.core</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.liferay</groupId>
+                <artifactId>com.liferay.portal.tools.service.builder</artifactId>
+                <version>${service.buider.version}</version>
+                <configuration>
+                    <apiDirName>../pdr-api/src/main/java</apiDirName>
+                    <autoNamespaceTables>true</autoNamespaceTables>
+                    <buildNumberIncrement>false</buildNumberIncrement>
+                    <hbmFileName>src/main/resources/META-INF/module-hbm.xml</hbmFileName>
+                    <implDirName>src/main/java</implDirName>
+                    <mergeModelHintsConfigs>src/main/resources/META-INF/portlet-model-hints-ext.xml
+                    </mergeModelHintsConfigs>
+                    <modelHintsFileName>src/main/resources/META-INF/portlet-model-hints.xml</modelHintsFileName>
+                    <osgiModule>true</osgiModule>
+                    <propsUtil>cz.csob.ency.modules.apps.pdr.service.util.ServiceProps</propsUtil>
+                    <resourcesDirName>src/main/resources</resourcesDirName>
+                    <sqlDirName>src/main/resources/META-INF/sql</sqlDirName>
+                    <sqlFileName>tables.sql</sqlFileName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

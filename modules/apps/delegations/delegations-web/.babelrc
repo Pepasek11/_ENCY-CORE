@@ -1,0 +1,22 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "env": {
+    "module": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "12.0"
+            },
+            "modules": false
+          }
+        ]
+      ]
+    }
+  },
+  "sourceMaps": true
+}

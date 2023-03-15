@@ -1,0 +1,12 @@
+Bundle-Name: ency-scheduled-job-manager
+Bundle-Description: : Ency Scheduled Job Manager
+Bundle-SymbolicName: cz.csob.ency.scheduler
+Bundle-Version: 1.0.0
+-contract: JavaPortlet,JavaServlet
+-jsp: *.jsp,*.jspf
+-metatype: *
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+-plugin.metatype: com.liferay.ant.bnd.metatype.MetatypePlugin
+-plugin.resourcebundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *

@@ -1,0 +1,35 @@
+<custom-sql>
+    <sql id="bioeSync">
+        <![CDATA[
+ Select
+       bioe.[JIRA_ID]                         as xid
+       ,bioe.[ID_JFP]                         as bioe_id
+       ,bioe.[bioe_stav]                      as status
+       ,[bioe_stav_id]                        as bioe_status_id
+       ,CAST(COALESCE(bioe.[domena_id],0) as bigint)  as domain_id
+       ,bioe.[domena]                         as domain_name
+       ,CONCAT(bioe.domena_id,' - ',bioe.domena) as domain_label
+       ,bioe.[zadatel_id]                     as requestor_id
+       ,[datum_registrace]                    as registration_date
+       ,bioe.[zacatek_praci]                  as work_start_dt
+       ,bioe.[konec_praci]                    as work_end_dt
+       ,[pracnost]                            as workhoursn
+       ,bioe.[termin]                         as expected_end_of
+       ,ency.[id]                             as xid2
+       ,zadatele.zadatel_logon as requestor_login
+       ,case WHEN bioe.[typ_pozadavku_id]=1 THEN zadatele.spoc_us_logon ELSE zadatele.spoc_logon END as spoc_login
+ from ENCY_DD_MOD_BPE_ALL bioe
+ join DX_NEW_ENCY ency
+       on ency.id=bioe.JIRA_ID
+ left join ENCY_zadatele zadatele on zadatele.os_c=bioe.zadatel_id and zadatele.actual=1
+ where bioe.ID_JFP=(
+       select max(bpe2.ID_JFP)
+       from ENCY_DD_MOD_BPE bpe2
+       where bpe2.JIRA_ID=bioe.JIRA_ID
+       )
+       AND bioe.[JIRA_ID] != 'ency_0001'
+       AND bioe.[JIRA_ID] IS NOT NULL AND [bioe_stav_id]<>11
+
+]]>
+    </sql>
+</custom-sql>

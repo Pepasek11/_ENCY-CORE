@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE routes PUBLIC "-//Liferay//DTD Friendly URL Routes 7.4.0//EN" "http://www.liferay.com/dtd/liferay-friendly-url-routes_7_4_0.dtd">
+<routes>
+
+	<route>
+		<pattern></pattern>
+		<implicit-parameter name="mvcRenderCommandName">/metacds/view</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+	</route>
+	<route>
+		<pattern>/system/id/{resourcePrimKey:\d+}</pattern>
+		<implicit-parameter name="cmd">view</implicit-parameter>
+		<implicit-parameter name="mvcRenderCommandName">/systementry/crud</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+	<route>
+		<pattern>/system/id/{resourcePrimKey:\d+}/{cmd}</pattern>
+		<implicit-parameter name="mvcRenderCommandName">/systementry/crud</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+	<route>
+		<pattern>/system/{urlTitle}</pattern>
+		<implicit-parameter name="mvcRenderCommandName">/systementry/crud</implicit-parameter>
+		<implicit-parameter name="cmd">view</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+	<route>
+		<pattern>/system/{urlTitle}/{cmd}</pattern>
+		<implicit-parameter name="mvcRenderCommandName">/systementry/crud</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+	<route>
+		<pattern>/table/id/{resourcePrimKey}</pattern>
+		<implicit-parameter name="cmd">view</implicit-parameter>
+		<implicit-parameter name="mvcRenderCommandName">/tableentry/crud</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+	<route>
+		<pattern>/table/id/{resourcePrimKey}/{cmd}</pattern>
+		<implicit-parameter name="mvcRenderCommandName">/tableentry/crud</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+	<route>
+		<pattern>/column/id/{resourcePrimKey}</pattern>
+		<implicit-parameter name="cmd">view</implicit-parameter>
+		<implicit-parameter name="mvcRenderCommandName">/columnentry/crud</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+	<route>
+		<pattern>/column/id/{resourcePrimKey}/{cmd}</pattern>
+		<implicit-parameter name="mvcRenderCommandName">/columnentry/crud</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+		<implicit-parameter name="p_p_mode">view</implicit-parameter>
+	</route>
+
+</routes>

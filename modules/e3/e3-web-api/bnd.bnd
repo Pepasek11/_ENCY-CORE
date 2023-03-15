@@ -1,0 +1,16 @@
+Bundle-Name: Ency 3 - Web Api
+Bundle-SymbolicName: cz.csob.ency.modules.e3.web.api
+Bundle-Version: 1.0.0
+Export-Package: \
+    cz.csob.ency.modules.e3.web.internal.bulk.selection,\
+    cz.csob.ency.modules.e3.web.context,\
+    cz.csob.ency.modules.e3.web.portlet.base,\
+    cz.csob.ency.modules.e3.web.portlet.base.actions,\
+    cz.csob.ency.modules.e3.web.portlet.base.actions.constants,\
+    cz.csob.ency.modules.e3.web.util,\
+    cz.csob.ency.modules.e3.web.constants,\
+    cz.csob.ency.modules.e3.web.internal.servlet.taglib.util
+
+Web-ContextPath: /e3-web-api
+
+

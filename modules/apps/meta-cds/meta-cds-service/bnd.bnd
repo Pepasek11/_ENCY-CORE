@@ -1,0 +1,7 @@
+Bundle-Name: meta-cds-service
+Bundle-SymbolicName: cz.csob.ency.modules.apps.meta.cds.service
+Bundle-Version: 1.0.0
+Liferay-Require-SchemaVersion: 1.0.1
+Liferay-Service: true
+-dsannotations-options: inherit
+Export-Package: cz.csob.ency.modules.apps.meta.cds.internal.background.task

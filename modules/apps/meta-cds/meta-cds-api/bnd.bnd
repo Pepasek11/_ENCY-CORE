@@ -1,0 +1,13 @@
+Bundle-Name: meta-cds-api
+Bundle-SymbolicName: cz.csob.ency.modules.apps.meta.cds.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	cz.csob.ency.modules.apps.meta.cds.background.task,\
+	cz.csob.ency.modules.apps.meta.cds.exception,\
+	cz.csob.ency.modules.apps.meta.cds.loader,\
+	cz.csob.ency.modules.apps.meta.cds.model,\
+	cz.csob.ency.modules.apps.meta.cds.service,\
+	cz.csob.ency.modules.apps.meta.cds.service.persistence,\
+	cz.csob.ency.modules.apps.meta.cds.constants
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../meta-cds-service/service.xml

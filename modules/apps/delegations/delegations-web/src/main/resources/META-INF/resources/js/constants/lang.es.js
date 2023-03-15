@@ -1,0 +1,45 @@
+const lang = {
+    delegationRoles: Liferay.Language.get('delegation-roles'),
+    delegationRoleX: Liferay.Language.get('delegation-role-x'),
+    role: Liferay.Language.get('role'),
+    note: Liferay.Language.get('note'),
+    action: Liferay.Language.get('action'),
+    roles: Liferay.Language.get('roles'),
+    addRole: Liferay.Language.get('add-role'),
+    deleteRole: Liferay.Language.get('delete-role'),
+    code: Liferay.Language.get('code'),
+    roleName: Liferay.Language.get('role-name'),
+    roleNamePlaceholder: Liferay.Language.get('enter-role-name'),
+    roleNameDescription: Liferay.Language.get('descriptive-role-name'),
+    roleCode: Liferay.Language.get('role-code'),
+    roleCodePlaceholder: Liferay.Language.get('enter-role-code'),
+    roleCodeDescription: Liferay.Language.get('role-code-used-to-reference-role-in-logic'),
+    descriptionPlaceholder: Liferay.Language.get('enter-role-description'),
+    notePlaceholder: Liferay.Language.get('enter-note-here'),
+    newRole: Liferay.Language.get('new-role'),
+    newDelegation: Liferay.Language.get('new-delegation'),
+    errors: {
+        codeBadCharacters: Liferay.Language.get('the-x-can-contain-only-letters-numbers-and-characters-x'),
+        fieldEmpty: Liferay.Language.get('the-x-can-not-be-empty'),
+    },
+    somethingWentWrong: Liferay.Language.get('something-went-wrong'),
+    error:Liferay.Language.get('error'),
+    confirmDeleteRole:Liferay.Language.get('do-you-really-want-to-delete-role-x'),
+    success: Liferay.Language.get('success'),
+    roleSuccessfullyDeleted: Liferay.Language.get('role-x-successfully-deleted'),
+    noRolesTitle:  Liferay.Language.get('there-are-no-roles'),
+
+    delegateFrom: Liferay.Language.get('delegate-from'),
+    delegateTo: Liferay.Language.get('delegate-to'),
+    addDelegation: Liferay.Language.get('add-delegation'),
+    delegations: Liferay.Language.get('delegations'),
+    description: Liferay.Language.get('description'),
+    delete:Liferay.Language.get('delete'),
+    deleteDelegation:Liferay.Language.get('delete-delegation'),
+    confirmDeleteDelegation:Liferay.Language.get('do-you-really-want-to-delete-delegation-of-role-x-from-x-to-x'),
+    delegationSuccessfullyDeleted: Liferay.Language.get('delegation-successfully-deleted'),
+
+
+}
+
+export {lang}

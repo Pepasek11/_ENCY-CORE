@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<hint-collection name="NAME">
+		<hint name="max-length">256</hint>
+	</hint-collection>
+	<hint-collection name="MEDIUMTEXT">
+		<hint name="max-length">512</hint>
+	</hint-collection>
+	<hint-collection name="LONGTEXT">
+		<hint name="max-length">1024</hint>
+	</hint-collection>
+	<model name="cz.csob.ency.delegations.model.DelegatedRole">
+		<field name="mvccVersion" type="long" />
+		<field name="roleId" type="long" />
+		<field name="title" type="String">
+			<hint-collection name="NAME"></hint-collection>
+		</field>
+		<field name="code" type="String" >
+			<hint-collection name="NAME"></hint-collection>
+		</field>
+		<field name="description" type="String" >
+			<hint-collection name="LONGTEXT"></hint-collection>
+		</field>
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" >
+			<hint-collection name="NAME"></hint-collection>
+		</field>
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="cz.csob.ency.delegations.model.Delegation">
+		<field name="mvccVersion" type="long" />
+		<field name="delegationId" type="long" />
+		<field name="roleId" type="long" />
+		<field name="delegatingUserId" type="long" />
+		<field name="delegatedUserId" type="long" />
+		<field name="note" type="String" >
+			<hint-collection name="LONGTEXT"></hint-collection>
+		</field>
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" >
+			<hint-collection name="NAME"></hint-collection>
+		</field>
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+</model-hints>

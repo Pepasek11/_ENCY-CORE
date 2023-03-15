@@ -1,0 +1,12 @@
+Bundle-Name: Ency 3 - Web
+Bundle-SymbolicName: cz.csob.ency.modules.e3.web
+Bundle-Version: 1.0.0
+Web-ContextPath: /e3-web
+-contract: JavaPortlet,JavaServlet
+-jsp: *.jsp,*.jspf
+-metatype: *
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *
+
+

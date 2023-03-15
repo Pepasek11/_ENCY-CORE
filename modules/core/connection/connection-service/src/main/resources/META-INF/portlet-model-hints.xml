@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="cz.csob.ency.connection.model.ConnectionDefinition">
+		<field name="connectionId" type="long" />
+		<field name="name" type="String">
+			<hint name="max-length">30</hint>
+			<hint name="type" />
+		</field>
+		<field name="driver" type="String">
+			<hint name="max-length">20</hint>
+		</field>
+		<field name="url" type="String">
+			<hint name="max-length">1024</hint>
+		</field>
+		<field name="serverAddress" type="String">
+			<hint name="max-length">1024</hint>
+		</field>
+		<field name="serverPort" type="String">
+			<hint name="max-length">7</hint>
+		</field>
+		<field name="databaseName" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="integratedSecurity" type="Boolean" />
+		<field name="username" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="password" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="additionalParams" type="String" />
+	</model>
+</model-hints>

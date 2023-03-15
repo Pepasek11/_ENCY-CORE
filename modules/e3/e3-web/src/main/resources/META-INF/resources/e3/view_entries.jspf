@@ -1,0 +1,30 @@
+<liferay-ui:search-container
+        total="<%=E3EntryLocalServiceUtil.getE3EntriesCount()%>"
+        emptyResultsMessage="no-entries-were-found"
+        delta="10"
+        deltaConfigurable="true"
+        iteratorURL="<%=portletURL%>"
+>
+    <liferay-ui:search-container-results
+            results="<%=E3EntryLocalServiceUtil.getE3Entries(searchContainer.getStart(), searchContainer.getEnd())%>" />
+
+    <liferay-ui:search-container-row
+            className="cz.csob.ency.modules.e3.entry.model.E3Entry"
+            modelVar="entry">
+
+
+        <liferay-ui:search-container-column-text property="name" href="<%=E3EntryUtil.getEntryViewUrl(renderRequest, renderResponse, entry)%>" />
+        <liferay-ui:search-container-column-text property="entryId" />
+        <liferay-ui:search-container-column-text property="appClass" />
+        <liferay-ui:search-container-column-text property="authorName" />
+        <liferay-ui:search-container-column-text property="head" />
+        <%--
+        <liferay-ui:search-container-column-status property="status" />
+        <liferay-ui:search-container-column-jsp path="/pozadavky/entry_status.jsp"  name="status" />
+        <liferay-ui:search-container-column-jsp
+                align="right"
+                path="/pozadavky/entry_actions.jsp" />
+                --%>
+    </liferay-ui:search-container-row>
+    <liferay-ui:search-iterator />
+</liferay-ui:search-container>

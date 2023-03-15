@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cz.csob.ency</groupId>
+        <artifactId>modules</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <groupId>cz.csob.ency.modules</groupId>
+    <artifactId>apps</artifactId>
+    <name>Ency Apps</name>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>cds-demands</module>
+        <module>delegations</module>
+        <module>meta-cds</module>
+        <module>pdr</module>
+    </modules>
+
+</project>

@@ -1,0 +1,5 @@
+Bundle-Name: Ency3 Commonn JS
+Bundle-SymbolicName: cz.csob.ency.e3.common.js
+Bundle-Version: 1.0.0
+Liferay-JS-Config: /META-INF/resources/legacy/config.js
+Web-ContextPath: /e3-common-js

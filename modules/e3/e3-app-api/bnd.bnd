@@ -1,0 +1,8 @@
+Bundle-Name: Ency 3 - App Api
+Bundle-SymbolicName: cz.csob.ency.modules.e3.app.api
+Bundle-Version: 1.0.0
+Export-Package: \
+    cz.csob.ency.modules.e3.app.annotation,\
+    cz.csob.ency.modules.e3.app.entry,\
+    cz.csob.ency.modules.e3.app.model,\
+    cz.csob.ency.modules.e3.app.service

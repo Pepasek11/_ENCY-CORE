@@ -1,0 +1,15 @@
+Bundle-Name: cds-demands-service
+Bundle-SymbolicName: cz.csob.ency.cds.demands.service
+Bundle-Version: 1.0.0
+Export-Package:\
+    cz.csob.ency.cds.demands.bioe.service.impl,\cz.csob.ency.cds.demands.configuration,\
+    cz.csob.ency.cds.demands.internal.notifications,\
+    cz.csob.ency.cds.demands.internal.util
+
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+-dsannotations-options: inherit
+
+-plugin.bundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+-liferay-aggregate-resource-bundles: \
+    cz.csob.ency.cds.demands.api

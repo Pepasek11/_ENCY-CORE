@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+
+<service-builder
+		auto-import-default-references="false"
+		auto-namespace-tables="false"
+		dependency-injector="ds"
+		package-path="cz.csob.ency.modules.e3.entry" >
+	<namespace>EncyThreeEntry</namespace>
+	<entity
+			local-service="true"
+			name="E3Entry"
+			remote-service="false"
+			uuid="true"
+			versioned="true"
+			trash-enabled="false"
+			mvcc-enabled="true"
+	>
+
+		<!-- PK fields -->
+
+		<column name="entryId" db-name="entry_id" primary="true" type="long"/>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"/>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"/>
+		<column name="userId" db-name="entry_modifier_id" type="long"/>
+		<column name="userName" db-name="entry_modifier_name" type="String"/>
+		<column name="createDate" db-name="entry_created" type="Date"/>
+		<column name="modifiedDate" db-name="entry_modified" type="Date"/>
+		<column name="authorId" db-name="entry_author_id" type="long"/>
+		<column name="authorName" db-name="entry_author_name" type="String"/>
+
+		<!-- Other fields -->
+		<!--<column name="entry_xid" type="long" />-->
+		<column name="xid" db-name="entry_xid" type="String"/>
+		<column name="name" db-name="entry_name" type="String"/>
+		<column name="appClass" db-name="app_class" type="String"/>
+		<column name="parentId" db-name="parent_id" type="long"/>
+		<column name="parentField" db-name="parent_field" type="String"/>
+		<column name="values" db-name="json_values" type="Map"/>
+		<column name="status" db-name="status" type="long"/>
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="name"/>
+		</order>
+
+		<!-- Finder methods -->
+<!--
+		<finder name="entryid" return-type="E3Entry">
+			<finder-column name="entryid"/>
+		</finder>
+		<finder name="id_v" return-type="E3Entry">
+			<finder-column name="id"/>
+			<finder-column name="version"/>
+		</finder>
+-->
+		<finder name="xid" return-type="E3Entry">
+			<finder-column name="xid"/>
+		</finder>
+<!--
+		<finder name="x_v" return-type="E3Entry" unique="true">
+			<finder-column name="xid"/>
+			<finder-column name="version"/>
+		</finder>
+-->
+		<finder name="p_f" return-type="E3Entry">
+			<finder-column name="parentId"/>
+			<finder-column name="parentField"/>
+		</finder>
+
+		<!-- Asset support -->
+		<finder name="Status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+
+		<finder name="G_S" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="status" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset"/>
+		<reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
+		<reference entity="Company" package-path="com.liferay.portal" />
+		<reference entity="Group" package-path="com.liferay.portal" />
+		<reference entity="Image" package-path="com.liferay.portal" />
+		<reference entity="Organization" package-path="com.liferay.portal" />
+		<reference entity="Resource" package-path="com.liferay.portal" />
+		<reference entity="User" package-path="com.liferay.portal" />
+		<reference entity="RatingsStats" package-path="com.liferay.portlet.ratings" />
+	</entity>
+	<exceptions>
+		<exception>NoSuchE3Entry</exception>
+		<exception>NoSuchE3EntryVersion</exception>
+		<exception>InvalidE3Entry</exception>
+	</exceptions>
+</service-builder>

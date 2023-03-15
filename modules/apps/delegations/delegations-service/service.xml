@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN"
+        "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+<service-builder dependency-injector="ds" mvcc-enabled="true" package-path="cz.csob.ency.delegations">
+    <author>Miroslav Čermák</author>
+    <namespace>Delegations</namespace>
+
+    <entity name="DelegatedRole" local-service="true" table="delegations_delegatedrole" remote-service="true">
+        <!-- PK field -->
+        <column name="roleId" type="long" primary="true"/>
+
+        <column name="title" type="String"/>
+        <column name="code" type="String"/>
+        <column name="description" type="String"/>
+
+        <!-- Group instance -->
+        <column name="groupId" type="long"/>
+
+        <!-- Audit fields -->
+        <column name="companyId" type="long"/>
+        <column name="userId" type="long"/>
+        <column name="userName" type="String"/>
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <!-- Finder Methods Standard -->
+        <finder name="Id" return-type="DelegatedRole" unique="true">
+            <finder-column name="roleId"/>
+        </finder>
+        <finder name="Code" return-type="DelegatedRole" unique="true">
+            <finder-column name="code"/>
+        </finder>
+        <finder name="G" return-type="Collection">
+            <finder-column name="groupId"/>
+        </finder>
+
+        <reference entity="User" package-path="com.liferay.portal"/>
+        <reference entity="PortletPreferences" package-path="com.liferay.portal"/>
+    </entity>
+
+    <entity name="Delegation" local-service="true" remote-service="true" table="delegations_delegation" >
+        <!-- PK field -->
+        <column name="delegationId" type="long" primary="true"/>
+
+        <!-- Role that is delegated -->
+        <column name="roleId" type="long"/>
+
+        <!-- Whose role is delegated -->
+        <column name="delegatingUserId" type="long"/>
+
+        <!-- To whom is role delegated -->
+        <column name="delegatedUserId" type="long"/>
+
+        <!-- Group instance -->
+        <column name="groupId" type="long"/>
+
+        <column name="note" type="String"/>
+
+        <!-- Audit fields -->
+        <column name="companyId" type="long"/>
+        <column name="userId" type="long"/>
+        <column name="userName" type="String"/>
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <!-- Finder Methods Standard -->
+        <finder name="Id" return-type="Delegation" unique="true">
+            <finder-column name="delegationId"/>
+        </finder>
+        <finder name="G_R" return-type="Collection">
+            <finder-column name="groupId"/>
+            <finder-column name="roleId"/>
+        </finder>
+        <finder name="G_R_Delegating" return-type="Collection">
+            <finder-column name="groupId"/>
+            <finder-column name="roleId"/>
+            <finder-column name="delegatingUserId"/>
+        </finder>
+        <finder name="G_R_Delegated" return-type="Collection">
+            <finder-column name="groupId"/>
+            <finder-column name="roleId"/>
+            <finder-column name="delegatedUserId"/>
+        </finder>
+        <finder name="G" return-type="Collection">
+            <finder-column name="groupId"/>
+        </finder>
+
+        <reference entity="User" package-path="com.liferay.portal"/>
+        <reference entity="PortletPreferences" package-path="com.liferay.portal"/>
+
+    </entity>
+
+    <exceptions>
+        <exception>NoSuchDelegatedRole</exception>
+        <exception>NoSuchDelegation</exception>
+        <exception>DelegatedRoleValidate</exception>
+    </exceptions>
+</service-builder>

@@ -1,0 +1,19 @@
+{
+  "name": "delegations-web",
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "mui-datatables": "^3.8.5",
+    "react-router": "6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-select": "5.2.1"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "scripts": {
+    "build": "babel  --source-maps -d build/resources/main/META-INF/resources src/main/resources/META-INF/resources && liferay-npm-bundler"
+   },
+  "version": "1.0.0"
+}

@@ -1,0 +1,17 @@
+Bundle-Name: delegations-web
+Bundle-SymbolicName: cz.csob.ency.delegations.web
+Bundle-Version: 1.0.0
+Web-ContextPath: /delegations-web
+
+-dsannotations-options: inherit
+-metatype: *
+
+-jsp: *.jsp,*.jspf
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+-plugin.resourcebundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *
+
+-liferay-aggregate-resource-bundles: \
+    cz.csob.ency.delegations.api
+

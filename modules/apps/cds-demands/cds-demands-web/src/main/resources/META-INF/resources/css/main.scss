@@ -1,0 +1,244 @@
+// Fix screen flickering on some pages wheh scroll is constantly showing and hiding
+body {
+  overflow-y: scroll; /* Show vertical scrollbar */
+ // overflow-x: scroll; /* Show horizontal scrollbar */
+}
+
+// Compacting  default styles
+.sheet {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.75rem;
+}
+
+.sheet + .sheet {
+  margin-top: 1rem;
+}
+
+.sheet-subtitle {
+  color: var(--light, #272833);
+  margin-bottom: 0.5rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  margin-top: -0.75rem;
+  text-indent: 1rem;
+  background: var(--brand-color-4);
+}
+
+.sheet-title {
+  color: var(--light, #272833);
+  margin-bottom: 0.5rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  margin-top: -0.75rem;
+  background: var(--brand-color-4);
+  padding: 0.5rem 1rem;
+}
+
+.sheet-section {
+  margin-bottom: 0rem;
+}
+
+.MuiTableCell-head  .MuiButton-root {
+  font-weight: bold;
+}
+
+
+////////////////////////////////
+
+.sheet-subtitle>svg {
+  margin-right: 0.5rem;
+}
+
+.sheet-title>svg {
+  margin-right: 0.5rem;
+}
+
+.navigation-bar {
+  width: inherit;
+
+  .navbar-nav {
+    width: inherit;
+  }
+}
+
+.gouvernance{
+  font-size: 90%;
+}
+
+.dl-horizontal dt {
+  float: left;
+  width: 160px;
+  overflow: hidden;
+  clear: left;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gouvernance table th {
+  font-weight:bold
+}
+
+.gouvernance dd p.close_label{
+  margin-top:-15px!important;
+  margin-bottom:10px!important;
+}
+.gouvernance .delegations{
+  color:#555555;
+  font-size: 90%;
+  font-style: italic;
+  font-weight: normal;
+}
+.gouvernance dd p.delegations{
+  margin:0 0 0 0;
+}
+
+.gouvernance.dl-horizontal dt {
+  width:120px;
+}
+
+.gouvernance.dl-horizontal dd {
+  margin-left:140px;
+  margin-bottom:.5em;
+}
+
+.has-error .ency-select>div {
+  background-color: #feefef;
+  border-color: #f48989;
+  color: #272833;;
+}
+
+
+.demands-container {
+  .nav-item a {
+    cursor: pointer;
+  }
+
+  .app-title {
+    font-weight: 500;
+    font-size: 110%;
+    margin-right: 2em;
+  }
+}
+
+.gdprinfo-view-fields{
+  label {
+    margin-right: .5em;
+    font-size: 90%;
+    font-weight: 300;
+  }
+}
+
+.hide-accessible {
+  clip: rect(0 0 0 0) !important;
+  position: absolute !important;
+
+  /*Webkit and IE7 let clipped content change the scroll height of the page*/
+  /*Scale webkit to 0*/
+  -webkit-transform: scale(0);
+  -webkit-transform-origin-x: 0;
+  -webkit-transform-origin-y: 0;
+  /*Change IE7 to using fixed*/
+  *position: fixed !important;
+  /*...And reset back to absolute for IE6*/
+  _position: absolute !important;
+}
+
+.label-e3-priority-low{
+  background-color: #fff;
+  border-color: #204bff;
+  color: #1639be;
+}
+.label-e3-priority-high{
+  background-color: #fff;
+  border-color: #fa5418;
+  color: #fa5418;
+}
+.label-e3-priority-extreme{
+  background-color: #fff;
+  border-color: #ff2020;
+  color: #be1616;
+}
+
+.label-e3-type--1{
+  background-color: #fff;
+  border-color: #7e655a;
+  color: #7e655a;
+}
+.label-e3-type-1{
+  background-color: #fff;
+  border-color: #fc9219;
+  color: #ce7817;
+}
+
+.label-e3-type-2{
+  background-color: #fff;
+  border-color: #0f9800;
+  color: #108001;
+}
+
+.label-e3-state_navrh{
+  background-color: #fff;
+  border-color: #ff8f39;
+  color: #b95000;
+}
+
+.label-e3-state_revize_spoc{
+  background-color: #fff;
+  border-color: #c739ff;
+  color: #751e91;
+}
+
+.label-e3-state_revize_ban{
+  background-color: #fff;
+  border-color: #0d15a1;
+  color: #0a1070;
+}
+
+.label-e3-state_nacenovano{
+  background-color: #fff;
+  border-color: #a15c0d;
+  color: #a15c0d;
+}
+
+.label-e3-state_naceneno{
+  background-color: #fff;
+  border-color: #64802b;
+  color: #546e26;
+}
+
+.label-e3-state_realizace{
+  background-color: #fff;
+  border-color: #229400;
+  color: #4d7c00;
+}
+
+.label-e3-state_akceptace{
+  background-color: #fff;
+  border-color: #940065;
+  color: #940065;
+}
+
+.label-e3-state_akceptovano{
+  background-color: #fff;
+  border-color: #258b94;
+  color: #1f7177;
+}
+
+.label-e3-state_pozastaveno_ban,.label-e3-state_pozastaveno_spoc{
+  background-color: #fff;
+  border-color: #ff7200;
+  color: #ff7200;
+}
+
+
+.label-e3-state_zruseno{
+  background-color: #fff;
+  border-color: #252525;
+  color: #000000;
+}
+
+xxxx.label{
+  white-space: nowrap;
+}

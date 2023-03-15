@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN"
+        "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+<service-builder dependency-injector="ds" mvcc-enabled="true" package-path="cz.csob.ency.pdr">
+    <author>Miroslav Čermák</author>
+    <namespace>pdr</namespace>
+
+    <entity name="PDRAttribute" local-service="true" table="pdr_attribute" remote-service="true">
+        <!-- PK field -->
+        <column name="attributeId" type="long" primary="true"/>
+
+        <column name="fullName" type="String" />
+        <column name="parentId" type="long" />
+
+        <column name="nameCz" type="String" />
+        <column name="nameEn" type="String" />
+        <column name="nameSk" type="String" />
+
+        <column name="order" type="int" />
+        <column name="level" type="int" />
+        <column name="idsPath" type="String" />
+
+        <column name="description" type="String" />
+
+        <column name="personalDataTypeId" type="long" />
+        <column name="tagName" type="String" />
+
+        <column name="isRoA" type="boolean"/>
+        <column name="isRtP" type="boolean"/>
+
+        <column name="separatorBefore" type="String"/>
+        <column name="separatorAfter" type="String"/>
+
+        <column name="isMerge" type="boolean"/>
+        <column name="isLabel" type="boolean"/>
+        <column name="isObject" type="boolean"/>
+
+
+        <!-- Group instance -->
+        <column name="groupId" type="long"/>
+
+        <!-- Audit fields -->
+        <column name="companyId" type="long"/>
+        <column name="userId" type="long"/>
+        <column name="userName" type="String"/>
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+
+        <reference entity="User" package-path="com.liferay.portal"/>
+        <reference entity="PortletPreferences" package-path="com.liferay.portal"/>
+
+    </entity>
+
+    <entity name="PDRMapping" local-service="true" table="pdr_mapping" remote-service="true">
+        <!-- PK field -->
+        <column name="mappingId" type="long" primary="true"/>
+
+        <column name="title" type="String" />
+
+        <column name="systemId" type="long" />
+        <column name="tableId" type="long" />
+        <column name="columnId" type="long" />
+
+        <column name="attributeId" type="long" />
+
+        <column name="mappingRules" type="String" />
+
+        <!-- Group instance -->
+        <column name="groupId" type="long"/>
+
+        <!-- Audit fields -->
+        <column name="companyId" type="long"/>
+        <column name="userId" type="long"/>
+        <column name="userName" type="String"/>
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <!-- Workflow related fields -->
+        <column name="state" type="String"/>
+        <column name="stateByUserId" type="long"/>
+        <column name="stateByUserName" type="String"/>
+        <column name="stateDate" type="Date"/>
+
+        <reference entity="User" package-path="com.liferay.portal"/>
+        <reference entity="PortletPreferences" package-path="com.liferay.portal"/>
+
+    </entity>
+
+    <exceptions>
+        <exception>NoSuchPdrEntry</exception>
+    </exceptions>
+</service-builder>

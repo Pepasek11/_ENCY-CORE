@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cz.csob.ency.modules.core.connection</groupId>
+    <artifactId>connection-web</artifactId>
+
+	<parent>
+		<groupId>cz.csob.ency.modules.core</groupId>
+		<artifactId>connection</artifactId>
+		<version>1.0.1</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>connection-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+        <dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>connection-service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.liferay</groupId>
+                <artifactId>com.liferay.css.builder</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <baseDir>src/main/resources/META-INF/resources</baseDir>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

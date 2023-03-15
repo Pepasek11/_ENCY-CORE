@@ -1,0 +1,27 @@
+{
+	"name": "@ency/e3-common-js",
+	"version": "1.0.0",
+	"description": "Ency3 common JS",
+	"devDependencies": {
+		"@babel/cli": "^7.7.5",
+		"@babel/core": "^7.7.5",
+		"@babel/preset-env": "^7.7.6",
+		"liferay-npm-build-support": "^2.28.3",
+		"liferay-npm-bundler": "^2.28.3"
+	},
+	"dependencies": {
+		"@material-ui/core": "^4.12.4",
+		"@material-ui/icons": "^4.11.3",
+		"axios": "0.27.2",
+		"mui-datatables": "^3.8.5",
+		"react-router": "6.3.0",
+		"react-router-dom": "^6.3.0",
+		"react-select": "5.2.1",
+		"recharts": "^2.1.9"
+	},
+	"scripts": {
+		"build": "babel --source-maps -d build src && npm run copy-assets && liferay-npm-bundler",
+		"copy-assets": "lnbs-copy-assets"
+	},
+	"main": "js/index.js"
+}

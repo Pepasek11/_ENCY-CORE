@@ -1,0 +1,174 @@
+{
+  "projectName": "CdsDemands",
+  "packageName" : "cz.csob.ency.modules.apps.cds.demands",
+  "liferayVersion": "7.4",
+  "useTargetPlatform": "true",
+  "applications": [
+    {
+      "model"       : "CdsDemand",
+      "title"       : "Demand on CDS",
+      "web"         : "true",
+      "asset": {
+        "assetTitleFieldName": "title",
+        "assetSummaryFieldName": "description",
+        "categories": "false",
+        "discussion": "true",
+        "ratings": "true",
+        "tags": "true",
+        "relatedAssets": "true",
+        "fullContentFieldName": "description",
+        "workflow": "true",
+        "generateActivity": "true",
+        "trash":"false",
+        "advancedSearch": "true",
+        "exportExcel": "false"
+      },
+      "fields": [
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "primary":true,
+          "name": "demandId",
+          "title": "Demand Id",
+          "showFieldInView": "false",
+          "required": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "title",
+          "title": "Title",
+          "length": "500",
+          "showFieldInView": "true",
+          "required": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.RichText",
+          "name": "description",
+          "title": "Description"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "bioeId",
+          "title": "BIOE ID",
+          "length": "20",
+          "showFieldInView": "true",
+          "required": "false"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "name": "type",
+          "title": "Type",
+          "showFieldInView": "true",
+          "required": "true"
+        },        
+		{
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "name": "priority",
+          "title": "Priority",
+          "showFieldInView": "true",
+          "required": "false"
+        },        
+		{
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "name": "workEstimate",
+          "title": "Work Estimate in MDs",
+          "showFieldInView": "true",
+          "required": "false"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "name": "acceptedWorkEstimate",
+          "title": "Accepted Work Estimate",
+          "showFieldInView": "true",
+          "required": "false"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Date",
+          "name": "requestedDelivery",
+          "title": "Requested Delivery Date",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Date",
+          "name": "expectedDelivery",
+          "title": "Expected Delivery Date",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Date",
+          "name": "acceptedDelivery",
+          "title": "Accepted Delivery Date",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Boolean",
+          "name": "isGDPR",
+          "title": "Contains GDPR data",
+          "required": "false",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "gdprInfo",
+          "title": "GDPR Info",
+          "length": "1000",
+          "showFieldInView": "true",
+          "required": "false",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "name": "requestorId",
+          "title": "Requestor",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "name": "requestedForId",
+          "title": "Requested For",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "name": "domainId",
+          "title": "Department Id",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "name": "domainName",
+          "title": "Department Name",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "name": "banId",
+          "title": "BAN",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Long",
+          "name": "spocId",
+          "title": "SPOC",
+          "showFieldInView": "true"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "banName",
+          "title": "BAN Name",
+          "length": "256",
+          "showFieldInView": "true",
+          "required": "false"
+        },
+        {
+          "type": "com.liferay.damascus.cli.json.fields.Varchar",
+          "name": "spocName",
+          "title": "SPOC Name",
+          "length": "256",
+          "showFieldInView": "true",
+          "required": "false"
+        }
+      ]
+    }
+
+  ]
+}

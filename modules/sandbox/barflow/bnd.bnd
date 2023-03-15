@@ -1,0 +1,4 @@
+Bundle-Name: Bar Flow Test
+Bundle-SymbolicName: cz.csob.ency.sandbox.barflow
+Bundle-Version: 1.0.0
+Liferay-Service: true

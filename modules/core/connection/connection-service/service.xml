@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN"
+        "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="cz.csob.ency.connection">
+    <namespace>EncyConnection</namespace>
+    <!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+    <entity local-service="true" name="ConnectionDefinition" table="ency_connection" remote-service="false"
+            uuid="false">
+
+        <!-- PK fields -->
+
+        <column name="connectionId" primary="true" type="long"/>
+
+        <!-- Other fields -->
+
+        <column name="name" type="String"/>
+        <column name="driver" type="String"/>
+        <column name="url" type="String"/>
+        <column name="serverAddress" type="String"/>
+        <column name="serverPort" type="String"/>
+        <column name="databaseName" type="String"/>
+        <column name="integratedSecurity" type="Boolean"/>
+        <column name="username" type="String"/>
+        <column name="password" type="String"/>
+        <column name="additionalParams" type="String" />
+
+        <!-- Order -->
+
+        <order by="asc">
+            <order-column name="connectionId"/>
+        </order>
+
+        <!-- Finder methods -->
+
+        <finder name="Id" return-type="Collection">
+            <finder-column name="connectionId"/>
+        </finder>
+        <finder name="Name" return-type="Collection">
+            <finder-column name="name"/>
+        </finder>
+
+    </entity>
+    <exceptions>
+        <exception>ConnectionDefinitionEmptyDriver</exception>
+        <exception>ConnectionDefinitionEmptyName</exception>
+        <exception>ConnectionDefinitionEmptyServerName</exception>
+        <exception>ConnectionDefinitionInvalidPortUrl</exception>
+        <exception>ConnectionDefinitionEmptyUsername</exception>
+        <exception>ConnectionDefinitionNotFound</exception>
+        <exception>ConnectionDefinition</exception>
+    </exceptions>
+</service-builder>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cz.csob.ency</groupId>
+        <artifactId>modules</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <groupId>cz.csob.ency.modules</groupId>
+    <artifactId>e3</artifactId>
+    <name>ENCY 3</name>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>e3-api</module>
+        <module>e3-app-api</module>
+        <module>e3-app-impl</module>
+        <module>e3-entry-api</module>
+        <module>e3-entry-service</module>
+        <module>e3-field-api</module>
+        <module>e3-field-impl</module>
+        <module>e3-ui-taglib</module>
+        <module>e3-web-api</module>
+        <module>e3-web</module>
+    </modules>
+
+</project>

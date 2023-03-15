@@ -1,0 +1,9 @@
+Bundle-Name: Ency Data Provider API
+Bundle-SymbolicName: cz.csob.ency.data.provider.api
+Bundle-Version: 1.0.0
+Export-Package: \
+    cz.csob.ency.data.provider.service,\
+    cz.csob.ency.data.provider.search.result
+
+-metatype: *
+-plugin.metatype: com.liferay.ant.bnd.metatype.MetatypePlugin

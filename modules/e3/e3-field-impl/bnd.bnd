@@ -1,0 +1,9 @@
+Bundle-Name: Ency 3 - Field Impl
+Bundle-SymbolicName: cz.csob.ency.modules.e3.field.impl
+Bundle-Version: 1.0.0
+Export-Package: \
+    cz.csob.ency.modules.e3.field.text
+-check: EXPORTS
+Liferay-Service: true
+
+

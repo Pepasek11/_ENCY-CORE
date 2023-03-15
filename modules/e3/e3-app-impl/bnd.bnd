@@ -1,0 +1,7 @@
+Bundle-Name: Ency 3 - App Impl
+Bundle-SymbolicName: cz.csob.ency.modules.e3.app.impl
+Bundle-Version: 1.0.0
+Export-Package: \
+    cz.csob.ency.modules.e3.app.impl
+Liferay-Service: true
+

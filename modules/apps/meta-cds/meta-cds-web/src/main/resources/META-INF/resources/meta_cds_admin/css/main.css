@@ -1,0 +1,127 @@
+.e3-container .panel-heading {
+    background: #30313f;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 3px 15px;
+
+}
+
+.e3-container .panel-heading .title-text{
+    margin-left: .5em;
+}
+
+.flex-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: normal;
+    column-gap: 1em;
+    row-gap: 1em;
+    margin-bottom: 1em;
+}
+
+.fbjcl{
+    justify-content: left!important;
+}
+
+.flex-box > * {
+    flex: 1;
+}
+
+.flex-item .e3-ro-form-item {
+    background-color: #f7f7f7;
+    border: none;
+    color: #30313f;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: .2rem 1em;
+    width: 100%;
+    min-height: 2em;
+}
+
+.flex-item > label {
+    color: #33386a;
+    font-weight: 600;
+    font-size: 90%;
+    margin-bottom: 0.15rem;
+}
+
+.row.e3-app-header-row {
+    border-bottom: 1px solid lightgray;
+    padding: .5em .5em;
+    background-color: #41454a;
+    color: #f7f7f7;
+}
+
+.row.e3-app-header-row .inline-item-before {
+    margin-right: 0.5rem;
+    border-right: 1px solid #ffffff29;
+    padding-right: 0.5rem;
+}
+
+.row.e3-app-header-row .sticker {
+    height: 3em;
+    width: 3em;
+    background-color: white;
+
+}
+
+.row.e3-app-header-row .e3-app-logo {
+    margin: auto;
+}
+
+.row.e3-app-header-row .lexicon-icon {
+    height: 100%;
+    width:70%;
+    color: #0f1e52;
+    margin-top:2px;
+}
+
+.row.e3-app-header-row .dropdown {
+    margin: auto;
+}
+.row.e3-app-header-row .dropdown .lexicon-icon {
+    color: #ffffff;
+}
+
+.row.e3-app-breadcrumbs-row {
+    padding: 0.1em 1em;
+    color: gray;
+}
+
+
+.row.e3-app-header-row h5.sub-title {
+    color: darkgray;
+    margin-bottom: 0.2rem;
+    font-weight: 400;
+}
+
+.row.e3-app-header-row h2.title {
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+
+table.table.dataTable thead th {
+    height: 2em;
+    vertical-align: middle;
+    line-height: 2em;
+}
+
+table.table.dataTable thead th {
+    height: 2em;
+    vertical-align: middle;
+    line-height: 2em;
+}
+
+tr.entry-active td:first-child {
+    border-left: limegreen 4px solid;
+}
+
+tr.entry-deprecated td:first-child {
+    border-left: black 4px solid;
+    font-style: italic;
+    text-decoration: line-through;
+}

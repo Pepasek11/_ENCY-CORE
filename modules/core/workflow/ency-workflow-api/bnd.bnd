@@ -1,0 +1,21 @@
+Bundle-Name: ency-workflow-api
+Bundle-SymbolicName: cz.csob.ency.workflow.api
+Bundle-Version: 1.0.0
+Export-Package:\
+    cz.csob.ency.workflow.annotation,\
+    cz.csob.ency.workflow.constants,\
+    cz.csob.ency.workflow.definition,\
+    cz.csob.ency.workflow.entry.model,\
+    cz.csob.ency.workflow.exception,\
+    cz.csob.ency.workflow.handler,\
+    cz.csob.ency.workflow.manager,\
+    cz.csob.ency.workflow.model,\
+    cz.csob.ency.workflow.permission,\
+    cz.csob.ency.workflow.runtime,\
+    cz.csob.ency.workflow.runtime.action,\
+    cz.csob.ency.workflow.runtime.action.manager,\
+    cz.csob.ency.workflow.service,\
+    cz.csob.ency.workflow.service.persistence,\
+    cz.csob.ency.workflow.util
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../ency-workflow-service/service.xml

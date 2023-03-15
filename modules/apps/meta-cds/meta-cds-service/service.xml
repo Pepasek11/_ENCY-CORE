@@ -1,0 +1,414 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+<service-builder dependency-injector="ds" mvcc-enabled="true" package-path="cz.csob.ency.modules.apps.meta.cds">
+    <author>"Miroslav Čermák"</author>
+    <namespace>MetaCds</namespace>
+
+
+    <entity name="SystemEntry" local-service="true" remote-service="true" uuid="true" trash-enabled="true">
+
+        <!-- PK field -->
+        <column name="systemEntryId" type="long" primary="true" />
+        <column name="systemCode" type="long"  />
+        <column name="systemName" type="String"  />
+        <column name="systemTitle" type="String"  />
+        <column name="systemType" type="String"  />
+        <column name="description" type="String"  />
+        <column name="stewardName" type="String"  />
+        <column name="stewardId" type="String"  />
+        <column name="stewardDepartment" type="String"  />
+        <column name="businessOwnerName" type="String"  />
+        <column name="businessOwnerId" type="String"  />
+        <column name="contactPersonName" type="String"  />
+        <column name="contactPersonId" type="String"  />
+        <column name="sandboxName" type="String"  />
+        <column name="gestorDepartmentId" type="String"  />
+        <column name="gestorDepartmentName" type="String"  />
+        <column name="role" type="String"  />
+        <column name="snowAssetTagId" type="String"  />
+        <column name="snowAssetTagName" type="String"  />
+        <column name="isSlaSigned" type="boolean"  />
+        <column name="isSelfBi" type="boolean"  />
+        <column name="isActive" type="boolean"  />
+
+        <!-- Group instance -->
+        <column name="groupId" type="long"/>
+
+        <!-- Audit fields -->
+        <column name="companyId" type="long"/>
+        <column name="userId" type="long"/>
+        <column name="userName" type="String"/>
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <!-- Asset related fields-->
+        <column name="urlTitle" type="String" />
+
+
+        <!-- Workflow related fields -->
+        <column name="status" type="int" />
+        <column name="statusByUserId" type="long" />
+        <column name="statusByUserName" type="String" />
+        <column name="statusDate" type="Date" />
+
+        <!-- Workflow related Finders -->
+        <finder name="C_S" return-type="Collection">
+            <finder-column name="companyId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="G_S" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="C_U_S" return-type="Collection">
+            <finder-column name="companyId" />
+            <finder-column name="userId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="G_U_S" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="userId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="U_S" return-type="Collection">
+            <finder-column name="userId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="G_UT_ST" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="urlTitle" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+
+
+        <!-- Asset related Finders-->
+        <finder name="G_UT" return-type="SystemEntry" unique="true">
+            <finder-column name="groupId" />
+            <finder-column name="urlTitle" />
+        </finder>
+        <finder name="URLTitle" return-type="SystemEntry" unique="true">
+            <finder-column name="urlTitle" />
+        </finder>
+
+        <!-- Finder Methods Standard -->
+        <finder name="GroupId" return-type="Collection">
+            <finder-column name="groupId" />
+        </finder>
+        <finder name="UserIdGroupId" return-type="Collection">
+            <finder-column name="userId" />
+            <finder-column name="groupId" />
+        </finder>
+        <finder name="UserId" return-type="Collection">
+            <finder-column name="userId" />
+        </finder>
+        <finder name="CompanyId" return-type="Collection">
+            <finder-column name="companyId" />
+        </finder>
+
+        <finder name="SystemEntryId" return-type="Collection">
+            <finder-column name="systemEntryId" />
+        </finder>
+        <finder name="SystemCode" return-type="Collection">
+            <finder-column name="systemCode" />
+        </finder>
+        <finder name="SystemName" return-type="Collection">
+            <finder-column name="systemName" />
+        </finder>
+        <finder name="IsSlaSigned" return-type="Collection">
+            <finder-column name="isSlaSigned" />
+        </finder>
+        <finder name="IsSelfBi" return-type="Collection">
+            <finder-column name="isSelfBi" />
+        </finder>
+        <finder name="IsActive" return-type="Collection">
+            <finder-column name="isActive" />
+        </finder>
+        <reference entity="User" package-path="com.liferay.portal" />
+        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+        <reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+        <reference entity="DLFolder" package-path="com.liferay.portlet.documentlibrary" />
+        <reference entity="PortletPreferences" package-path="com.liferay.portal" />
+        <reference entity="Resource" package-path="com.liferay.portal" />
+        <reference entity="WorkflowInstanceLink" package-path="com.liferay.portal" />
+        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+        <reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
+    </entity>
+
+    <!--<entity data-source="sampleDataSource" local-service="true" name="TableEntry" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+    <entity name="TableEntry" local-service="true" remote-service="true" uuid="true" trash-enabled="true">
+
+        <!-- PK field -->
+        <column name="tableEntryId" type="long" primary="true" />
+        <column name="tableName" type="String"  />
+        <column name="tableFullName" type="String"  />
+        <column name="tableType" type="String"  />
+        <column name="tableDatabase" type="String"  />
+        <column name="systemEntryId" type="long"  />
+        <column name="systemName" type="String"  />
+        <column name="description" type="String"  />
+        <column name="dsaUrl" type="String"  />
+        <column name="contactPersonName" type="String"  />
+        <column name="contactPersonId" type="String"  />
+        <column name="specificationOwnerName" type="String"  />
+        <column name="specificationOwnerId" type="String"  />
+        <column name="unstructuredClause" type="String"  />
+        <column name="isActive" type="boolean"  />
+
+        <!-- Group instance -->
+        <column name="groupId" type="long"/>
+
+        <!-- Audit fields -->
+        <column name="companyId" type="long"/>
+        <column name="userId" type="long"/>
+        <column name="userName" type="String"/>
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <!-- Asset related fields-->
+        <column name="urlTitle" type="String" />
+
+
+        <!-- Workflow related fields -->
+        <column name="status" type="int" />
+        <column name="statusByUserId" type="long" />
+        <column name="statusByUserName" type="String" />
+        <column name="statusDate" type="Date" />
+
+        <!-- Workflow related Finders -->
+        <finder name="C_S" return-type="Collection">
+            <finder-column name="companyId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="G_S" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="C_U_S" return-type="Collection">
+            <finder-column name="companyId" />
+            <finder-column name="userId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="G_U_S" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="userId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="U_S" return-type="Collection">
+            <finder-column name="userId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="G_UT_ST" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="urlTitle" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+
+
+        <!-- Asset related Finders-->
+        <finder name="G_UT" return-type="TableEntry" unique="true">
+            <finder-column name="groupId" />
+            <finder-column name="urlTitle" />
+        </finder>
+        <finder name="URLTitle" return-type="TableEntry" unique="true">
+            <finder-column name="urlTitle" />
+        </finder>
+
+        <!-- Finder Methods Standard -->
+        <finder name="GroupId" return-type="Collection">
+            <finder-column name="groupId" />
+        </finder>
+        <finder name="UserIdGroupId" return-type="Collection">
+            <finder-column name="userId" />
+            <finder-column name="groupId" />
+        </finder>
+        <finder name="UserId" return-type="Collection">
+            <finder-column name="userId" />
+        </finder>
+        <finder name="CompanyId" return-type="Collection">
+            <finder-column name="companyId" />
+        </finder>
+
+        <finder name="TableEntryId" return-type="Collection">
+            <finder-column name="tableEntryId" />
+        </finder>
+        <finder name="TableName" return-type="Collection">
+            <finder-column name="tableName" />
+        </finder>
+        <finder name="TableFullName" return-type="Collection">
+            <finder-column name="tableFullName" />
+        </finder>
+        <finder name="TableType" return-type="Collection">
+            <finder-column name="tableType" />
+        </finder>
+        <finder name="TableDatabase" return-type="Collection">
+            <finder-column arrayable-operator="OR" comparator="="  name="tableDatabase" />
+        </finder>
+        <finder name="SystemEntryId" return-type="Collection">
+            <finder-column name="systemEntryId" />
+        </finder>
+        <finder name="Description" return-type="Collection">
+            <finder-column name="description" />
+        </finder>
+        <finder name="IsActive" return-type="Collection">
+            <finder-column name="isActive" />
+        </finder>
+
+        <finder name="S_D" return-type="Collection">
+            <finder-column name="systemEntryId" />
+            <finder-column arrayable-operator="OR" comparator="="  name="tableDatabase" />
+        </finder>
+        <finder name="S_T" return-type="Collection">
+            <finder-column name="systemEntryId" />
+            <finder-column arrayable-operator="OR" comparator="="  name="tableType" />
+        </finder>
+
+        <reference entity="User" package-path="com.liferay.portal" />
+        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+        <reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+        <reference entity="DLFolder" package-path="com.liferay.portlet.documentlibrary" />
+        <reference entity="PortletPreferences" package-path="com.liferay.portal" />
+        <reference entity="Resource" package-path="com.liferay.portal" />
+        <reference entity="WorkflowInstanceLink" package-path="com.liferay.portal" />
+        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+        <reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
+    </entity>
+
+    <!--<entity data-source="sampleDataSource" local-service="true" name="ColumnEntry" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+    <entity name="ColumnEntry" local-service="true" remote-service="true" uuid="true" trash-enabled="true">
+
+        <!-- PK field -->
+        <column name="columnEntryId" type="long" primary="true" />
+        <column name="columnType" type="String"  />
+        <column name="columnName" type="String"  />
+        <column name="columnPosition" type="long"  />
+        <column name="columnFullName" type="String"  />
+        <column name="tableEntryId" type="long"  />
+        <column name="tableName" type="String"  />
+        <column name="systemName" type="String"  />
+        <column name="databaseName" type="String"  />
+        <column name="description" type="String"  />
+        <column name="dataType" type="String"  />
+        <column name="dataSize" type="long"  />
+        <column name="isPrimaryKey" type="boolean"  />
+        <column name="isNotNull" type="boolean"  />
+        <column name="isActive" type="boolean"  />
+
+        <!-- Group instance -->
+        <column name="groupId" type="long"/>
+
+        <!-- Audit fields -->
+        <column name="companyId" type="long"/>
+        <column name="userId" type="long"/>
+        <column name="userName" type="String"/>
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <!-- Asset related fields-->
+        <column name="urlTitle" type="String" />
+
+
+        <!-- Workflow related fields -->
+        <column name="status" type="int" />
+        <column name="statusByUserId" type="long" />
+        <column name="statusByUserName" type="String" />
+        <column name="statusDate" type="Date" />
+
+        <!-- Workflow related Finders -->
+        <finder name="C_S" return-type="Collection">
+            <finder-column name="companyId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="G_S" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="C_U_S" return-type="Collection">
+            <finder-column name="companyId" />
+            <finder-column name="userId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="G_U_S" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="userId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="U_S" return-type="Collection">
+            <finder-column name="userId" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+        <finder name="G_UT_ST" return-type="Collection">
+            <finder-column name="groupId" />
+            <finder-column name="urlTitle" />
+            <finder-column arrayable-operator="OR" comparator="=" name="status" />
+        </finder>
+
+
+        <!-- Asset related Finders-->
+        <finder name="G_UT" return-type="ColumnEntry" unique="true">
+            <finder-column name="groupId" />
+            <finder-column name="urlTitle" />
+        </finder>
+        <finder name="URLTitle" return-type="ColumnEntry" unique="true">
+            <finder-column name="urlTitle" />
+        </finder>
+
+        <!-- Finder Methods Standard -->
+        <finder name="GroupId" return-type="Collection">
+            <finder-column name="groupId" />
+        </finder>
+        <finder name="UserIdGroupId" return-type="Collection">
+            <finder-column name="userId" />
+            <finder-column name="groupId" />
+        </finder>
+        <finder name="UserId" return-type="Collection">
+            <finder-column name="userId" />
+        </finder>
+        <finder name="CompanyId" return-type="Collection">
+            <finder-column name="companyId" />
+        </finder>
+
+        <finder name="ColumnEntryId" return-type="Collection">
+            <finder-column name="columnEntryId" />
+        </finder>
+        <finder name="ColumnType" return-type="Collection">
+            <finder-column name="columnType" />
+        </finder>
+        <finder name="ColumnName" return-type="Collection">
+            <finder-column name="columnName" />
+        </finder>
+        <finder name="ColumnFullName" return-type="Collection">
+            <finder-column name="columnFullName" />
+        </finder>
+        <finder name="TableEntryId" return-type="Collection">
+            <finder-column name="tableEntryId" />
+        </finder>
+        <finder name="SystemName" return-type="Collection">
+            <finder-column name="systemName" />
+        </finder>
+        <finder name="DatabaseName" return-type="Collection">
+            <finder-column name="databaseName" />
+        </finder>
+        <finder name="IsActive" return-type="Collection">
+            <finder-column name="isActive" />
+        </finder>
+        <reference entity="User" package-path="com.liferay.portal" />
+        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+        <reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+        <reference entity="DLFolder" package-path="com.liferay.portlet.documentlibrary" />
+        <reference entity="PortletPreferences" package-path="com.liferay.portal" />
+        <reference entity="Resource" package-path="com.liferay.portal" />
+        <reference entity="WorkflowInstanceLink" package-path="com.liferay.portal" />
+        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+        <reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
+    </entity>
+    <exceptions>
+        <exception>NoSuchSystemEntry</exception>
+        <exception>SystemEntryValidate</exception>
+        <exception>NoSuchTableEntry</exception>
+        <exception>TableEntryValidate</exception>
+        <exception>NoSuchColumnEntry</exception>
+        <exception>ColumnEntryValidate</exception>
+    </exceptions>
+
+</service-builder>
+<!--   -->

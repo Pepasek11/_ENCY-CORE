@@ -1,0 +1,13 @@
+Bundle-Name: e3-entry-api
+Bundle-Description: : Ency 3: Entry Api
+Bundle-SymbolicName: cz.csob.ency.modules.e3.entry.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	cz.csob.ency.modules.e3.entry.exception,\
+	cz.csob.ency.modules.e3.entry.model,\
+	cz.csob.ency.modules.e3.entry.utils,\
+	cz.csob.ency.modules.e3.entry.utils.comparator,\
+	cz.csob.ency.modules.e3.entry.service,\
+	cz.csob.ency.modules.e3.entry.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../e3-entry-service/service.xml

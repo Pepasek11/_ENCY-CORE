@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<hint-collection name="CLOB">
+		<hint name="max-length">2000000</hint>
+	</hint-collection>
+	<hint-collection name="EDITOR">
+		<hint name="editor">true</hint>
+		<hint name="max-length">2000000</hint>
+	</hint-collection>
+	<hint-collection name="EMAIL-ADDRESS">
+		<hint name="max-length">254</hint>
+	</hint-collection>
+	<hint-collection name="HOSTNAME">
+		<hint name="max-length">200</hint>
+	</hint-collection>
+	<hint-collection name="SEARCHABLE-DATE">
+		<hint name="month-nullable">true</hint>
+		<hint name="day-nullable">true</hint>
+		<hint name="year-nullable">true</hint>
+		<hint name="show-time">false</hint>
+	</hint-collection>
+	<hint-collection name="TEXTAREA">
+		<hint name="display-height">105</hint>
+		<hint name="display-width">500</hint>
+		<hint name="max-length">4000</hint>
+	</hint-collection>
+	<hint-collection name="URL">
+		<hint name="max-length">4000</hint>
+	</hint-collection>
+	<hint-collection name="NAMELIST">
+		<hint name="max-length">3000</hint>
+	</hint-collection>
+	<hint-collection name="IDLIST">
+		<hint name="max-length">300</hint>
+	</hint-collection>
+	<hint-collection name="URLTITLE">
+		<hint name="max-length">256</hint>
+	</hint-collection>
+
+	<model name="cz.csob.ency.modules.apps.meta.cds.model.ColumnEntry">
+		<field name="uuid" type="String" />
+		<field name="columnType" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="columnName" type="String">
+			<hint name="max-length">512</hint>
+		</field>
+		<field name="columnFullName" type="String">
+			<hint name="max-length">512</hint>
+		</field>
+		<field name="tableName" type="String">
+			<hint name="max-length">512</hint>
+		</field>
+		<field name="systemName" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="databaseName" type="String">
+			<hint name="max-length">128</hint>
+		</field>
+		<field name="description" type="String">
+			<hint-collection name="EDITOR" />
+		</field>
+		<field name="dataType" type="String">
+			<hint name="max-length">32</hint>
+		</field>
+		<field name="urlTitle" type="String">
+			<hint-collection name="URLTITLE"/>
+		</field>
+	</model>
+	<model name="cz.csob.ency.modules.apps.meta.cds.model.SystemEntry">
+		<field name="systemName" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="systemTitle" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="systemType" type="String">
+			<hint name="max-length">20</hint>
+		</field>
+		<field name="description" type="String">
+			<hint-collection name="EDITOR" />
+		</field>
+		<field name="stewardName" type="String">
+			<hint-collection name="NAMELIST"/>
+		</field>
+		<field name="stewardId" type="String">
+			<hint-collection name="IDLIST"/>
+		</field>
+		<field name="stewardDepartment" type="String">
+			<hint-collection name="NAMELIST"/>
+		</field>
+		<field name="businessOwnerName" type="String">
+			<hint-collection name="NAMELIST"/>
+		</field>
+		<field name="businessOwnerId" type="String">
+			<hint-collection name="IDLIST"/>
+		</field>
+		<field name="contactPersonName" type="String">
+			<hint-collection name="NAMELIST"/>
+		</field>
+		<field name="contactPersonId" type="String">
+			<hint-collection name="IDLIST"/>
+		</field>
+		<field name="sandboxName" type="String">
+			<hint name="max-length">256</hint>
+		</field>
+		<field name="gestorDepartmentId" type="String">
+			<hint-collection name="IDLIST"/>
+		</field>
+		<field name="gestorDepartmentName" type="String">
+			<hint name="max-length">512</hint>
+		</field>
+		<field name="role" type="String">
+			<hint name="max-length">256</hint>
+		</field>
+		<field name="snowAssetTagId" type="String">
+			<hint-collection name="IDLIST"/>
+		</field>
+		<field name="snowAssetTagName" type="String">
+			<hint-collection name="NAMELIST"/>
+		</field>
+		<field name="urlTitle" type="String">
+			<hint-collection name="URLTITLE"/>
+		</field>
+	</model>
+	<model name="cz.csob.ency.modules.apps.meta.cds.model.TableEntry">
+		<field name="uuid" type="String" />
+		<field name="tableName" type="String">
+			<hint name="max-length">512</hint>
+		</field>
+		<field name="tableFullName" type="String">
+			<hint name="max-length">512</hint>
+		</field>
+		<field name="tableType" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="tableDatabase" type="String">
+			<hint name="max-length">128</hint>
+		</field>
+		<field name="systemName" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="description" type="String">
+			<hint-collection name="EDITOR" />
+		</field>
+		<field name="dsaUrl" type="String">
+			<hint-collection name="URL" />
+		</field>
+		<field name="contactPersonName" type="String">
+			<hint-collection name="NAMELIST"/>
+		</field>
+		<field name="contactPersonId" type="String">
+			<hint-collection name="IDLIST"/>
+		</field>
+		<field name="specificationOwnerName" type="String">
+			<hint-collection name="NAMELIST"/>
+		</field>
+		<field name="specificationOwnerId" type="String">
+			<hint-collection name="IDLIST"/>
+		</field>
+		<field name="unstructuredClause" type="String">
+			<hint-collection name="CLOB"/>
+		</field>
+		<field name="urlTitle" type="String">
+			<hint-collection name="URLTITLE"/>
+		</field>
+
+	</model>
+</model-hints>

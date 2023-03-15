@@ -1,0 +1,15 @@
+Bundle-Name: Ency 3 - UI Taglib
+Bundle-SymbolicName: cz.csob.ency.modules.e3.ui.taglib
+Bundle-Version: 1.0.0
+Export-Package: cz.csob.ency.modules.e3.ui.taglib.servlet.taglib
+Provide-Capability:\
+	osgi.extender;\
+		osgi.extender="jsp.taglib";\
+		uri="http://csob.cz/tld/e3/ui";\
+		version:Version="${Bundle-Version}"
+Web-ContextPath: /e3-ui-taglib
+-jsp: *.jsp,*.jspf
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *
+

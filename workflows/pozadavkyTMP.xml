@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<workflow-definition
+        xmlns="urn:liferay.com:liferay-workflow_7.2.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:liferay.com:liferay-workflow_7.2.0 http://www.liferay.com/dtd/liferay-workflow-definition_7_2_0.xsd">
+    <name>Tet wf</name>
+    <description>Workflow pro cds pozadavky</description>
+    <version>1</version>
+    <state>
+        <name>start</name>
+        <actions>
+            <action>
+                <name>log_start_in</name>
+                <script>
+                    <![CDATA[
+   						import com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil;
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        import com.liferay.portal.kernel.comment.CommentManagerUtil;
+
+                        Log log = LogFactoryUtil.getLog("wf_state_start");
+                        log.info('Entering state Start');
+                        WorkflowStatusManagerUtil.updateStatus(101, workflowContext);
+
+                        log.info("WC: "+workflowContext);
+
+                    ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onEntry</execution-type>
+            </action>
+            <action>
+                <name>log_start_out</name>
+                <script>
+                    <![CDATA[
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        Log log = LogFactoryUtil.getLog("wf_state_start");
+                        log.info('Leaving state Start');
+                  ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onExit</execution-type>
+            </action>
+        </actions>
+        <initial>true</initial>
+        <transitions>
+            <transition>
+                <name>from_start</name>
+                <target>first_task</target>
+                <default>true</default>
+            </transition>
+            <transition>
+                <name>from_start_to_end</name>
+                <target>end</target>
+                <default>false</default>
+            </transition>
+        </transitions>
+    </state>
+    <task>
+        <name>first_task</name>
+        <actions>
+            <action>
+                <name>log_first_task_in</name>
+                <script>
+                    <!--
+                    <![CDATA[
+                       import com.liferay.registry.RegistryUtil
+                        import java.util.Collections;
+
+                        def registry = RegistryUtil.getRegistry()
+
+                        def bundleContext = registry._bundleContext
+                        serviceReference = bundleContext.getServiceReference("cz.csob.liferay.portlet.pozadavky.web.internal.workflow.PozadavkyWorkflowUtils");
+                        service = bundleContext.getService(serviceReference);
+                        service.transition('start', workflowContext);
+                    ]]>
+                    -->
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onEntry</execution-type>
+            </action>
+            <action>
+                <name>log_first_task_assign</name>
+                <script>
+                    <![CDATA[
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        Log log = LogFactoryUtil.getLog("wf_first_task");
+                        log.info('Assigment on task first_task');
+                    ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onAssignment</execution-type>
+            </action>
+            <action>
+                <name>log_first_task_out</name>
+                <script>
+                    <![CDATA[
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        Log log = LogFactoryUtil.getLog("wf_first_task");
+                        log.info('Leaving task first_task');
+                    ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onExit</execution-type>
+            </action>
+        </actions>
+        <assignments>
+            <user/>
+        </assignments>
+        <transitions>
+            <transition>
+                <name>to_middle_state</name>
+                <target>middle_state</target>
+            </transition>
+        </transitions>
+    </task>
+    <state>
+        <name>middle_state</name>
+        <actions>
+            <action>
+                <name>log_middle_state_in</name>
+                <script>
+                    <![CDATA[
+   						import com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil;
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        Log log = LogFactoryUtil.getLog("wf_middle_state");
+                        log.info('Entering state middle_state');
+                        WorkflowStatusManagerUtil.updateStatus(103, workflowContext);
+                  ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onEntry</execution-type>
+            </action>
+            <action>
+                <name>log_middle_state_out</name>
+                <script>
+                    <![CDATA[
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        Log log = LogFactoryUtil.getLog("wf_middle_state");
+                        log.info('Leaving state middle_state');
+                    ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onExit</execution-type>
+            </action>
+        </actions>
+        <transitions>
+            <transition>
+                <name>to_second_task</name>
+                <target>second_task</target>
+            </transition>
+        </transitions>
+    </state>
+    <task>
+        <name>second_task</name>
+        <actions>
+            <action>
+                <name>log_second_task_in</name>
+                <script>
+                    <![CDATA[
+   						import com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil;
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        Log log = LogFactoryUtil.getLog("wf_second_task");
+                        log.info('Entering task second_task');
+                         WorkflowStatusManagerUtil.updateStatus(104, workflowContext);
+                   ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onEntry</execution-type>
+            </action>
+            <action>
+                <name>log_second_task_out</name>
+                <script>
+                    <![CDATA[
+   						import com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil;
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        Log log = LogFactoryUtil.getLog("wf_second_task");
+                        log.info('Leaving task second_task');
+                    ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onExit</execution-type>
+            </action>
+        </actions>
+        <assignments>
+            <user/>
+        </assignments>
+        <transitions>
+            <transition>
+                <name>to_end</name>
+                <target>end</target>
+            </transition>
+            <transition>
+                <name>to_first</name>
+                <target>first_task</target>
+            </transition>
+        </transitions>
+    </task>
+    <state>
+        <name>end</name>
+        <actions>
+            <action>
+                <name>log_end_in</name>
+                <script>
+                    <![CDATA[
+   						import com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil;
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        Log log = LogFactoryUtil.getLog("wf_state_end");
+                        log.info('Entering state End');
+                        WorkflowStatusManagerUtil.updateStatus(105, workflowContext);
+                   ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onEntry</execution-type>
+            </action>
+        </actions>
+    </state>
+</workflow-definition>

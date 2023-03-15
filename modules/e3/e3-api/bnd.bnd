@@ -1,0 +1,6 @@
+Bundle-Name: Ency 3 - Api
+Bundle-SymbolicName: cz.csob.ency.modules.e3.api
+Bundle-Version: 1.0.0
+Export-Package: \
+    cz.csob.ency.modules.e3.constants,\
+    cz.csob.ency.modules.e3.exceptions

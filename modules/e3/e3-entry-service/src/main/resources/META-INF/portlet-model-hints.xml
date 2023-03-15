@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="cz.csob.ency.modules.e3.entry.model.E3Entry">
+		<field name="mvccVersion" type="long" />
+		<field name="uuid" type="String" />
+		<field name="headId" type="long" />
+		<field name="entryId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String">
+			<hint name="max-length">256</hint>
+		</field>
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="authorId" type="long" />
+		<field name="authorName" type="String">
+			<hint name="max-length">256</hint>
+		</field>
+		<field name="xid" type="String">
+			<hint name="max-length">256</hint>
+		</field>
+		<field name="name" type="String">
+			<hint name="max-length">256</hint>
+		</field>
+		<field name="appClass" type="String">
+			<hint name="max-length">512</hint>
+		</field>
+		<field name="parentId" type="long" />
+		<field name="parentField" type="String">
+			<hint name="max-length">128</hint>
+		</field>
+		<field name="values" type="Map" />
+		<field name="status" type="long" />
+	</model>
+	<model name="cz.csob.ency.modules.e3.entry.model.E3EntryVersion">
+		<field name="e3EntryVersionId" type="long" />
+		<field name="version" type="int" />
+		<field name="uuid" type="String" />
+		<field name="entryId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String">
+			<hint name="max-length">256</hint>
+		</field>
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="authorId" type="long" />
+		<field name="authorName" type="String">
+			<hint name="max-length">256</hint>
+		</field>
+		<field name="xid" type="String">
+			<hint name="max-length">256</hint>
+		</field>
+		<field name="name" type="String">
+			<hint name="max-length">256</hint>
+		</field>
+		<field name="appClass" type="String">
+			<hint name="max-length">512</hint>
+		</field>
+		<field name="parentId" type="long" />
+		<field name="parentField" type="String">
+			<hint name="max-length">128</hint>
+		</field>
+		<field name="values" type="Map" />
+		<field name="status" type="long" />
+	</model>
+</model-hints>

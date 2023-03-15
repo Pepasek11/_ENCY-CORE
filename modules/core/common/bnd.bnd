@@ -1,0 +1,14 @@
+Bundle-Name: Ency Common
+Bundle-SymbolicName: cz.csob.ency.common
+Bundle-Version: 1.0.0
+Web-ContextPath: /common
+Export-Package: \
+    cz.csob.ency.common.json.response,\
+    cz.csob.ency.common.json.jsonws,\
+    cz.csob.ency.common.helpers
+
+
+
+
+
+

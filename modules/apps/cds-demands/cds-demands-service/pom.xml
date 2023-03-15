@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cz.csob.ency.modules.apps.cds-demands</groupId>
+    <artifactId>cds-demands-service</artifactId>
+    <name>CdsDemands Service</name>
+    <version>1.0.0</version>
+
+    <parent>
+        <groupId>cz.csob.ency.modules.apps</groupId>
+        <artifactId>cds-demands</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>cz.csob.ency.modules.apps.cds-demands</groupId>
+            <artifactId>cds-demands-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cz.csob.ency.modules.core.workflow</groupId>
+            <artifactId>ency-workflow-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cz.csob.ency.modules.core.connection</groupId>
+            <artifactId>connection-api</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>cz.csob.ency.modules.core</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cz.csob.ency.modules.apps.delegations</groupId>
+            <artifactId>delegations-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.liferay</groupId>
+                <artifactId>com.liferay.portal.tools.service.builder</artifactId>
+                <version>${service.buider.version}</version>
+                <configuration>
+                    <apiDirName>../cds-demands-api/src/main/java</apiDirName>
+                    <autoNamespaceTables>true</autoNamespaceTables>
+                    <buildNumberIncrement>false</buildNumberIncrement>
+                    <hbmFileName>src/main/resources/META-INF/module-hbm.xml</hbmFileName>
+                    <implDirName>src/main/java</implDirName>
+                    <mergeModelHintsConfigs>src/main/resources/META-INF/portlet-model-hints-ext.xml
+                    </mergeModelHintsConfigs>
+                    <modelHintsFileName>src/main/resources/META-INF/portlet-model-hints.xml</modelHintsFileName>
+                    <osgiModule>true</osgiModule>
+                    <propsUtil>cz.csob.ency.modules.apps.cds-demands.service.util.ServiceProps</propsUtil>
+                    <resourcesDirName>src/main/resources</resourcesDirName>
+                    <sqlDirName>src/main/resources/META-INF/sql</sqlDirName>
+                    <sqlFileName>tables.sql</sqlFileName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

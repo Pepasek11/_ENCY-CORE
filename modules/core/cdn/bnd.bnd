@@ -1,0 +1,6 @@
+Bundle-Name: Ency - CDN
+Bundle-SymbolicName: cz.csob.ency.cdn
+Bundle-Version: 1.0.1
+Web-ContextPath: /cdn
+
+

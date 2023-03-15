@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cz.csob.ency.modules</groupId>
+		<artifactId>e3</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<groupId>cz.csob.ency.modules.e3</groupId>
+	<artifactId>e3-web</artifactId>
+	<name>ENCY 3: Web</name>
+	<dependencies>
+		<dependency>
+			<groupId>cz.csob.ency.modules.e3</groupId>
+			<artifactId>e3-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>cz.csob.ency.modules.e3</groupId>
+			<artifactId>e3-entry-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>cz.csob.ency.modules.e3</groupId>
+			<artifactId>e3-app-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>cz.csob.ency.modules.e3</groupId>
+			<artifactId>e3-web-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.liferay/org.apache.struts -->
+		<dependency>
+			<groupId>com.liferay</groupId>
+			<artifactId>org.apache.struts</artifactId>
+			<version>1.2.9.LIFERAY-PATCHED-1</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.liferay</groupId>
+				<artifactId>com.liferay.css.builder</artifactId>
+				<version>3.0.2</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<baseDir>src/main/resources/META-INF/resources</baseDir>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

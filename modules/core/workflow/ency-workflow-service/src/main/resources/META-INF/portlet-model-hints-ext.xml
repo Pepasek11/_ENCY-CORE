@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<model-hints>
+    <hint-collection name="CLOB">
+        <hint name="max-length">2000000</hint>
+    </hint-collection>
+    <hint-collection name="EDITOR">
+        <hint name="editor">true</hint>
+        <hint name="max-length">2000000</hint>
+    </hint-collection>
+    <hint-collection name="NAME">
+        <hint name="max-length">200</hint>
+    </hint-collection>
+    <hint-collection name="SEARCHABLE-DATE">
+        <hint name="month-nullable">true</hint>
+        <hint name="day-nullable">true</hint>
+        <hint name="year-nullable">true</hint>
+        <hint name="show-time">false</hint>
+    </hint-collection>
+    <hint-collection name="TITLE">
+        <hint name="max-length">1000</hint>
+    </hint-collection>
+    <hint-collection name="CLASS">
+        <hint name="max-length">1000</hint>
+    </hint-collection>
+    <hint-collection name="COMMENT">
+        <hint name="max-length">2000</hint>
+    </hint-collection>
+
+    <model name="cz.csob.ency.workflow.model.EncyWorkflow">
+        <field name="className" type="String">
+            <hint-collection name="CLASS"/>
+        </field>
+        <field name="title" type="String">
+            <hint-collection name="TITLE"/>
+        </field>
+        <field name="description" type="String">
+            <hint-collection name="EDITOR"/>
+        </field>
+    </model>
+    <model name="cz.csob.ency.workflow.model.EncyWorkflowState">
+        <field name="name" type="String">
+            <hint-collection name="NAME"/>
+        </field>
+        <field name="title" type="String">
+            <hint-collection name="TITLE"/>
+        </field>
+        <field name="description" type="String">
+            <hint-collection name="EDITOR"/>
+        </field>
+        <field name="cssIcon" type="String">
+            <hint name="max-length">100</hint>
+        </field>
+        <field name="cssIconColor" type="String">
+            <hint name="max-length">10</hint>
+        </field>
+        <field name="cssLabelColor" type="String">
+            <hint name="max-length">10</hint>
+        </field>
+    </model>
+    <model name="cz.csob.ency.workflow.model.EncyWorkflowTransition">
+        <field name="name" type="String">
+            <hint-collection name="NAME"/>
+        </field>
+        <field name="title" type="String">
+            <hint-collection name="TITLE"/>
+        </field>
+        <field name="description" type="String">
+            <hint-collection name="EDITOR"/>
+        </field>
+        <field name="cssIcon" type="String">
+            <hint name="max-length">100</hint>
+        </field>
+        <field name="targetStateName" type="String">
+            <hint-collection name="NAME"/>
+        </field>
+        <field name="targetStateId" type="String">
+            <hint-collection name="NAME"/>
+        </field>
+        <field name="cssIcon" type="String">
+            <hint name="max-length">100</hint>
+        </field>
+        <field name="cssIconColor" type="String">
+            <hint name="max-length">10</hint>
+        </field>
+    </model>
+
+    <model name="cz.csob.ency.workflow.model.EncyWorkflowInstance">
+        <field name="className" type="String">
+            <hint-collection name="CLASS"/>
+        </field>
+        <field name="workflowContext" type="String">
+            <hint-collection name="CLOB"/>
+        </field>
+    </model>
+    <model name="cz.csob.ency.workflow.model.EncyWorkflowStateInstance">
+        <field name="uuid" type="String" />
+        <field name="userName" type="String" />
+        <field name="workflowContext" type="String">
+            <hint-collection name="CLOB"/>
+        </field>
+    </model>
+    <model name="cz.csob.ency.workflow.model.EncyWorkflowTransitionInstance">
+        <field name="comment" type="String">
+            <hint-collection name="COMMENT"/>
+        </field>
+        <field name="workflowContext" type="String">
+            <hint-collection name="CLOB"/>
+        </field>
+    </model>
+
+    <model name="cz.csob.ency.workflow.model.EncyWorkflowLink">
+        <field name="userName" type="String"/>
+        <field name="className" type="String">
+            <hint-collection name="CLASS"/>
+        </field>
+        <field name="folderClassName" type="String" >
+            <hint-collection name="CLASS"/>
+        </field>
+    </model>
+
+</model-hints>

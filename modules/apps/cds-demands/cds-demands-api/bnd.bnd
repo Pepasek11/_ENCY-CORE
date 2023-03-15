@@ -1,0 +1,27 @@
+Bundle-Name: cds-demands-api
+Bundle-SymbolicName: cz.csob.ency.cds.demands.api
+Bundle-Version: 1.0.0
+Export-Package:\
+    cz.csob.ency.cds.demands.bioe.service,\
+    cz.csob.ency.cds.demands.cst.service,\
+    cz.csob.ency.cds.demands.configuration,\
+    cz.csob.ency.cds.demands.constants,\
+    cz.csob.ency.cds.demands.exception,\
+    cz.csob.ency.cds.demands.model,\
+    cz.csob.ency.cds.demands.semanta.imports,\
+    cz.csob.ency.cds.demands.service,\
+    cz.csob.ency.cds.demands.service.persistence,\
+    cz.csob.ency.cds.demands.workflow
+
+-plugin.bundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+
+-metatype: *
+-plugin.metatype: com.liferay.ant.bnd.metatype.MetatypePlugin
+
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language";\
+		service.ranking:Long="-1"
+
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../cds-demands-service/service.xml

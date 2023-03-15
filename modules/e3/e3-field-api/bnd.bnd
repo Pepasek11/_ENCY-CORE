@@ -1,0 +1,12 @@
+Bundle-Name: Ency 3 - Field API
+Bundle-SymbolicName: cz.csob.ency.modules.e3.field.api
+Bundle-Version: 1.0.0
+Export-Package: \
+    cz.csob.ency.modules.e3.field.annotation,\
+    cz.csob.ency.modules.e3.field.constants,\
+    cz.csob.ency.modules.e3.field.model,\
+    cz.csob.ency.modules.e3.field.properties,\
+    cz.csob.ency.modules.e3.field.service,\
+    cz.csob.ency.modules.e3.field.utils
+
+

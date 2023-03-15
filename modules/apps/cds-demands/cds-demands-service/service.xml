@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN"
+        "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+<service-builder dependency-injector="ds" mvcc-enabled="true" package-path="cz.csob.ency.cds.demands">
+    <author>Miroslav Čermák</author>
+    <namespace>CdsDemands</namespace>
+
+
+    <entity name="CdsDemand" local-service="true" remote-service="true" uuid="true" trash-enabled="false"
+            versioned="true" >
+
+        <!-- PK field -->
+        <column name="demandId" type="long" primary="true"/>
+        <column name="title" type="String"/>
+        <column name="description" type="String"/>
+        <column name="type" type="int"/>
+        <column name="priority" type="int"/>
+        <column name="requestedDelivery" type="Date"/>
+        <column name="isGDPR" type="boolean"/>
+        <column name="gdprInfo" type="String"/>
+        <column name="fiveTracks" type="String"/>
+
+        <column name="requestorId" type="long"/>
+        <column name="requestorName" type="String"/>
+        <column name="requestedForId" type="long"/>
+        <column name="requestedForName" type="String"/>
+        <column name="contactId" type="long"/>
+        <column name="contactName" type="String"/>
+        <column name="domainId" type="long"/>
+        <column name="domainName" type="String"/>
+        <column name="banId" type="long"/>
+        <column name="banName" type="String"/>
+        <column name="spocId" type="long"/>
+        <column name="spocName" type="String"/>
+
+        <column name="usReasoning" type="String"/>
+        <column name="usFrequencyOut" type="int"/>
+        <column name="usAccessDPM" type="boolean"/>
+        <column name="usFolderDPM" type="String"/>
+        <column name="usCreateFolderDPM" type="boolean"/>
+        <column name="usGestorFolderDPMId" type="long"/>
+        <column name="usGestorFolderDPMName" type="String"/>
+        <column name="usDPMNotificationMail" type="String"/>
+
+        <column name="bioeId" type="String"/>
+        <column name="bioeStateId" type="short"/>
+        <column name="bioeStateName" type="String"/>
+        <column name="workEstimate" type="double"/>
+        <column name="acceptedWorkEstimate" type="double"/>
+        <column name="expectedDelivery" type="Date"/>
+        <column name="acceptedDelivery" type="Date"/>
+
+        <!-- Group instance -->
+        <column name="groupId" type="long"/>
+
+        <!-- Audit fields -->
+        <column name="companyId" type="long"/>
+        <column name="userId" type="long"/>
+        <column name="userName" type="String"/>
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <!-- Asset related fields-->
+        <column name="urlTitle" type="String"/>
+
+
+        <!-- Workflow related fields -->
+        <column name="state" type="String"/>
+        <column name="stateByUserId" type="long"/>
+        <column name="stateByUserName" type="String"/>
+        <column name="stateDate" type="Date"/>
+
+        <!-- Finder Methods Standard -->
+        <finder name="UserId" return-type="Collection">
+            <finder-column name="userId"/>
+        </finder>
+        <finder name="Xid" return-type="CdsDemand" unique="true">
+            <finder-column name="uuid"/>
+        </finder>
+        <finder name="DI" return-type="Collection">
+            <finder-column name="domainId" arrayable-operator="OR" comparator="="/>
+        </finder>
+
+        <reference entity="User" package-path="com.liferay.portal"/>
+        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset"/>
+        <reference entity="AssetTag" package-path="com.liferay.portlet.asset"/>
+        <reference entity="DLFolder" package-path="com.liferay.portlet.documentlibrary"/>
+        <reference entity="PortletPreferences" package-path="com.liferay.portal"/>
+        <reference entity="Resource" package-path="com.liferay.portal"/>
+        <reference entity="AssetEntry" package-path="com.liferay.portlet.asset"/>
+        <reference entity="AssetLink" package-path="com.liferay.portlet.asset"/>
+    </entity>
+
+
+    <entity name="CdsDemandGdprInfo" local-service="true" remote-service="true" uuid="true" trash-enabled="false"
+            versioned="false" mvcc-enabled="false">
+
+        <!-- PK field -->
+        <column name="gdprInfoId" type="long" primary="true"/>
+        <column name="demandId" type="long"/>
+        <column name="title" type="String"/>
+        <column name="description" type="String"/>
+        <column name="isEmployee" type="boolean"/>
+        <column name="employeeCategory" type="String"/>
+        <column name="employeeReasoning" type="String"/>
+        <column name="isClient" type="boolean"/>
+        <column name="clientCategory" type="String"/>
+        <column name="clientReasoning" type="String"/>
+
+        <!-- Audit fields -->
+        <column name="userId" type="long"/>
+        <column name="userName" type="String"/>
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <finder name="demandId" return-type="Collection">
+            <finder-column name="demandId"/>
+        </finder>
+
+    </entity>
+    <exceptions>
+        <exception>NoSuchCdsDemand</exception>
+        <exception>CdsDemandValidate</exception>
+    </exceptions>
+</service-builder>

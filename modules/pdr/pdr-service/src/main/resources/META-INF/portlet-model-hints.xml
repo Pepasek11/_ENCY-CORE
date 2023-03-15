@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="cz.csob.ency.pdr.model.PDRAttribute">
+		<field name="mvccVersion" type="long" />
+		<field name="attributeId" type="long" />
+		<field name="fullName" type="String" />
+		<field name="parentId" type="long" />
+		<field name="nameCz" type="String" />
+		<field name="nameEn" type="String" />
+		<field name="nameSk" type="String" />
+		<field name="order" type="int" />
+		<field name="level" type="int" />
+		<field name="idsPath" type="String" />
+		<field name="description" type="String" />
+		<field name="personalDataTypeId" type="long" />
+		<field name="tagName" type="String" />
+		<field name="isRoA" type="boolean" />
+		<field name="isRtP" type="boolean" />
+		<field name="separatorBefore" type="String" />
+		<field name="separatorAfter" type="String" />
+		<field name="isMerge" type="boolean" />
+		<field name="isLabel" type="boolean" />
+		<field name="isObject" type="boolean" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="cz.csob.ency.pdr.model.PDRMapping">
+		<field name="mvccVersion" type="long" />
+		<field name="mappingId" type="long" />
+		<field name="title" type="String" />
+		<field name="systemId" type="long" />
+		<field name="tableId" type="long" />
+		<field name="columnId" type="long" />
+		<field name="attributeId" type="long" />
+		<field name="mappingRules" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="state" type="String" />
+		<field name="stateByUserId" type="long" />
+		<field name="stateByUserName" type="String" />
+		<field name="stateDate" type="Date" />
+	</model>
+</model-hints>

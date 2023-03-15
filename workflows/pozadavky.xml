@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<workflow-definition
+        xmlns="urn:liferay.com:liferay-workflow_7.2.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:liferay.com:liferay-workflow_7.2.0 http://www.liferay.com/dtd/liferay-workflow-definition_7_2_0.xsd">
+    <name>CDS Pozadavky WF</name>
+    <description>Workflow pro cds požadavky</description>
+    <version>1</version>
+    <state>
+        <name>Created</name>
+        <actions>
+            <action>
+                <name>log_start_in</name>
+                <script>
+                    <![CDATA[
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        import com.liferay.portal.kernel.comment.CommentManagerUtil;
+                        import com.liferay.portal.kernel.workflow.WorkflowConstants;
+   						import com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil;
+
+						WorkflowStatusManagerUtil.updateStatus(WorkflowConstants.STATUS_DRAFT  , workflowContext);
+
+                        Log log = LogFactoryUtil.getLog("wf_state_start");
+                        log.info('Entering state Start');
+
+                        log.info("WC: "+workflowContext);
+
+                    ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onEntry</execution-type>
+            </action>
+        </actions>
+        <initial>true</initial>
+        <transitions>
+            <transition>
+                <name>New to draft</name>
+                <target>Draft</target>
+                <default>true</default>
+            </transition>
+        </transitions>
+    </state>
+    <task>
+        <name>Draft</name>
+        <actions>
+            <action>
+                <name>log_first_task_in</name>
+                <script>
+                    <!--
+                    <![CDATA[
+                       import com.liferay.registry.RegistryUtil
+                        import java.util.Collections;
+
+                        def registry = RegistryUtil.getRegistry()
+
+                        def bundleContext = registry._bundleContext
+                        serviceReference = bundleContext.getServiceReference("cz.csob.liferay.portlet.pozadavky.web.internal.workflow.PozadavkyWorkflowUtils");
+                        service = bundleContext.getService(serviceReference);
+                        service.transition('start', workflowContext);
+                    ]]>
+                    -->
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onEntry</execution-type>
+            </action>
+            <action>
+                <name>log_first_task_assign</name>
+                <script>
+                    <![CDATA[
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        Log log = LogFactoryUtil.getLog("wf_first_task");
+                        log.info('Assigment on task first_task');
+                    ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onAssignment</execution-type>
+            </action>
+        </actions>
+        <assignments>
+            <user/>
+        </assignments>
+        <transitions>
+            <transition>
+                <name>Ke schválení SPOCem</name>
+                <target>Kontrola draftu</target>
+            </transition>
+        </transitions>
+    </task>
+    <condition>
+        <name>Kontrola draftu</name>
+        <metadata>
+            <![CDATA[{"xy":[228,32]}]]>
+        </metadata>
+        <script>
+            <![CDATA[
+				import com.liferay.portal.kernel.util.GetterUtil;
+				import com.liferay.portal.kernel.workflow.WorkflowConstants;
+   				import com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil;
+                import com.liferay.portal.kernel.workflow.WorkflowHandler;
+				import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+				import com.liferay.asset.kernel.model.AssetCategory;
+				import com.liferay.asset.kernel.model.AssetEntry;
+				import com.liferay.asset.kernel.model.AssetRenderer;
+				import com.liferay.asset.kernel.model.AssetRendererFactory;
+				import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
+				import java.util.List;
+	            import com.liferay.portal.kernel.log.Log;
+                import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+                import com.liferay.registry.RegistryUtil
+                import java.util.Collections;
+
+                def registry = RegistryUtil.getRegistry()
+
+                def bundleContext = registry._bundleContext
+                serviceReference = bundleContext.getServiceReference("PozadavkyWorkflowUtils");
+                service = bundleContext.getService(serviceReference);
+                String res = service.decideTransiton(workflowContext);
+
+
+    			String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+				WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+				AssetRendererFactory assetRendererFactory = workflowHandler.getAssetRendererFactory();
+				long classPK = GetterUtil.getLong((String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_PK));
+				/*
+				AssetRenderer assetRenderer = workflowHandler.getAssetRenderer(classPK);
+				AssetEntry assetEntry = assetRendererFactory.getAssetEntry(assetRendererFactory.getClassName(), assetRenderer.getClassPK());
+				List<AssetCategory> assetCategories = assetEntry.getCategories();
+				returnValue = "Content Review";
+				for (AssetCategory assetCategory : assetCategories) {
+					String categoryName = assetCategory.getName();
+					if (categoryName.equals("legal")) {
+						returnValue = "Legal Review";
+						return;
+					}
+				}
+
+*/
+				 Log log = LogFactoryUtil.getLog("Kontrola draftu");
+                 log.info('Entering condition Kontrola draftu cn=' + className + ' id='+ classPK +' result='+res);
+
+
+				//WorkflowStatusManagerUtil.updateStatus(WorkflowConstants.STATUS_INCOMPLETE  , workflowContext);
+
+				returnValue = res;
+			]]>
+        </script>
+        <script-language>groovy</script-language>
+        <transitions>
+            <transition>
+                <name>Back to Draft</name>
+                <target>Draft</target>
+                <default>false</default>
+            </transition>
+            <transition>
+                <name>K revizi SPOCem</name>
+                <target>spoc-review</target>
+                <default>false</default>
+            </transition>
+        </transitions>
+    </condition>
+    <task>
+        <name>spoc-review</name>
+        <actions>
+            <action>
+                <name>log_spocreview_in</name>
+                <script>
+                    <![CDATA[
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        import com.liferay.portal.kernel.workflow.WorkflowConstants;
+   						import com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil;
+
+						WorkflowStatusManagerUtil.updateStatus(WorkflowConstants.STATUS_PENDING  , workflowContext);
+
+                        Log log = LogFactoryUtil.getLog("SPOC review");
+                        log.info('Entering state spocreview_in');
+
+                  ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onEntry</execution-type>
+            </action>
+        </actions>
+        <assignments>
+            <user/>
+        </assignments>
+        <transitions>
+            <transition>
+                <name>Approve</name>
+                <target>Approved</target>
+            </transition>
+        </transitions>
+    </task>
+    <state>
+        <name>Approved</name>
+        <actions>
+            <action>
+                <name>log_Approved_in</name>
+                <script>
+                    <![CDATA[
+                        import com.liferay.portal.kernel.log.Log;
+                        import com.liferay.portal.kernel.log.LogFactoryUtil;
+                        import com.liferay.portal.kernel.workflow.WorkflowConstants;
+   						import com.liferay.portal.kernel.workflow.WorkflowStatusManagerUtil;
+						WorkflowStatusManagerUtil.updateStatus(WorkflowConstants.STATUS_APPROVED , workflowContext);
+
+                        Log log = LogFactoryUtil.getLog("wf_Approved_end");
+                        log.info('Entering state Approved');
+                     //   WorkflowStatusManagerUtil.updateStatus(105, workflowContext);
+
+                   ]]>
+                </script>
+                <script-language>groovy</script-language>
+                <execution-type>onEntry</execution-type>
+            </action>
+        </actions>
+    </state>
+</workflow-definition>

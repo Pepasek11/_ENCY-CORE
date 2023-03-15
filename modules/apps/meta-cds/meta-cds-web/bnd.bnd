@@ -1,0 +1,12 @@
+Bundle-Name: meta-cds-web
+Bundle-SymbolicName: cz.csob.ency.modules.apps.meta.cds.web
+Bundle-Version: 1.0.0
+Web-ContextPath: /meta-cds-web
+-dsannotations-options: inherit
+-metatype: *
+
+-jsp: *.jsp,*.jspf
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+-plugin.resourcebundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *

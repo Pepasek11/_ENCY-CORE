@@ -1,0 +1,5 @@
+Bundle-Name: Ency Portal Security SSO Token Implementation
+Bundle-SymbolicName: cz.csob.ency.security.sso.token.impl
+Bundle-Version: 1.0.0
+-dsannotations-options: inherit
+-plugin.metatype: com.liferay.ant.bnd.metatype.MetatypePlugin

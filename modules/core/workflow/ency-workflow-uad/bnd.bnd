@@ -1,0 +1,4 @@
+Bundle-Name: Liferay Ency Workflow UAD
+Bundle-SymbolicName: cz.csob.ency.workflow.uad
+Bundle-Version: 1.0.0
+-dsannotations-options: inherit
