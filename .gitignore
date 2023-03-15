@@ -34,3 +34,5 @@ RemoteSystemsTempFiles
 .externalToolBuilders
 .metadata
 .settings
+.project
+Dockerfile.ext
